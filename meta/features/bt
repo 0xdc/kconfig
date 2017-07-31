@@ -1,0 +1,7 @@
+config META_BT
+	bool "Bluetooth"
+
+	select NET
+	select BT
+	select BT_HCIBTUSB if USB
+	select ATH3K

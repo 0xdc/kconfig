@@ -1,0 +1,13 @@
+config META_STORAGE
+	bool "Storage (SATA AHCI & USB)"
+
+	select HAS_DMA
+	select HAS_IOMEM
+	select SATA_AHCI
+	select ATA
+	select PCI
+	select USB
+	select BLOCK
+	select USB_SUPPORT
+	#select USB_EHCI_HCD
+	select USB_XHCI_HCD

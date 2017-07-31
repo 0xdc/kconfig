@@ -1,0 +1,81 @@
+# for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*); do make tinyconfig >/dev/null; echo $i; ./scripts/config -e meta_options; ./scripts/config -e $i; make olddefconfig | grep "^warning:"; done
+
+menu "Meta Options"
+
+config META_OPTIONS
+	bool "Enable selection of meta options"
+	default n
+
+if META_OPTIONS
+
+config META_ALL
+	bool "Enable all options"
+
+	select META_AZOLLA
+	select META_BRIX
+	select META_MAPLE
+	select META_OAK
+	select META_KAVA
+
+	select META_IKCONFIG
+	select META_ASTEROID
+
+comment "Hosts"
+
+if X86
+
+source "meta/hosts/x86/azolla"
+source "meta/hosts/x86/brix"
+source "meta/hosts/x86/kava"
+source "meta/hosts/x86/maple"
+source "meta/hosts/x86/oak"
+source "meta/hosts/x86/rosemary"
+source "meta/hosts/x86/samus"
+source "meta/hosts/x86/vanilla"
+
+endif
+
+if ARM
+
+source "meta/hosts/arm/parallella"
+source "meta/hosts/arm/snow"
+
+endif
+
+menu "Advanced selection"
+	visible if META_OPTIONS
+
+source "meta/features/asteroid"
+source "meta/features/bt"
+source "meta/features/btrfs"
+source "meta/features/cifs"
+source "meta/features/ec"
+source "meta/features/efi"
+source "meta/features/electron"
+source "meta/features/ethernet"
+source "meta/features/gpt"
+source "meta/features/ikconfig"
+source "meta/features/ima+evm"
+source "meta/features/intel"
+source "meta/features/intel_hyperthreading"
+source "meta/features/ipmi"
+source "meta/features/iptables"
+source "meta/features/luks"
+source "meta/features/minimum"
+source "meta/features/networking"
+source "meta/features/ns"
+source "meta/features/pcie"
+source "meta/features/serial"
+source "meta/features/sound"
+source "meta/features/storage"
+source "meta/features/systemd"
+source "meta/features/v4l2"
+source "meta/features/virt"
+source "meta/features/wlan"
+source "meta/features/xen"
+
+endmenu
+
+endif
+
+endmenu

@@ -1,0 +1,10 @@
+config META_VIRT
+	bool "Virtualisation"
+
+	select NET
+	select MULTIUSER
+	select HIGH_RES_TIMERS
+	select VIRTUALIZATION
+	select VIRTIO
+	select KVM
+	select KVM_INTEL if CPU_SUP_INTEL

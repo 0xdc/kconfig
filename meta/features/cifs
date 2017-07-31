@@ -1,0 +1,7 @@
+config META_CIFS
+	bool "CIFS support"
+
+	select NET
+	select INET
+	select NETWORK_FILESYSTEMS
+	select CIFS

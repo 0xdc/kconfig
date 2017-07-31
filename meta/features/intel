@@ -1,0 +1,6 @@
+config META_INTEL
+	bool "Intel CPU"
+
+	select PREEMPT
+	select PREEMPT_RCU
+	select CPU_SUP_INTEL

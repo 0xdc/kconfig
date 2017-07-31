@@ -1,0 +1,5 @@
+config META_ELECTRON
+	bool "Electron(Atom) application support"
+
+	select ADVISE_SYSCALLS
+	select SECCOMP

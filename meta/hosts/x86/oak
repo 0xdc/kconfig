@@ -1,0 +1,39 @@
+config META_OAK
+	bool "Oak"
+
+	select 64BIT
+
+	select META_BT
+	select META_BTRFS
+	select META_CIFS
+	select META_ETHERNET
+	select META_ELECTRON
+	select META_GPT
+	select META_IMA
+	select META_INTEL
+	select META_INTEL_HYPERTHREADING
+	select META_IPTABLES
+	select META_LUKS
+	select META_NS
+	select META_BASIC_NETWORKING
+	select META_PCIE
+	select META_SERIAL
+	select META_SOUND
+	select META_STORAGE
+	select META_SYSTEMD
+	select META_V4L2
+	select META_VIRT
+	select META_WLAN
+
+	select MODULES # Needs RTS5229 and EC_SYS as external module
+	select FUSE_FS
+
+	select E1000E
+
+	select WLAN_VENDOR_ATH
+	select ATH3K
+	select ATH9K
+
+	select HAS_IOMEM
+	select DRM
+	select DRM_I915

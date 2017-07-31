@@ -1,0 +1,2 @@
+config META_BRIX
+	bool "Brix"

@@ -1,0 +1,16 @@
+config META_LUKS
+	bool "LUKS/cryptsetup support"
+
+	select BLOCK
+	select MD
+	select BLK_DEV_MD
+	select MD_RAID1
+	select BLK_DEV_DM
+	select DM_CRYPT
+	select DM_MIRROR
+	select DM_RAID
+
+	select CRYPTO_XTS
+
+	select CRYPTO_SHA256_SSSE3 if META_INTEL
+	select CRYPTO_AES_NI_INTEL if META_INTEL

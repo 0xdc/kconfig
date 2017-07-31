@@ -1,0 +1,7 @@
+config META_IPMI
+	bool "IPMI"
+
+	select HAS_IOMEM
+	select IPMI_HANDLER
+	select IPMI_WATCHDOG
+	select IPMI_SI

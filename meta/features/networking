@@ -1,0 +1,6 @@
+config META_BASIC_NETWORKING
+	bool "Basic Networking"
+
+	select NET
+	select PACKET
+	select UNIX

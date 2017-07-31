@@ -1,0 +1,4 @@
+config META_SERIAL
+	bool "Serial (USB) support"
+
+	select PL2303

@@ -1,0 +1,21 @@
+config META_AZOLLA
+	bool "Azolla"
+
+	select 64BIT
+	select MATOM # doesn't unset GENERIC_CPU
+
+	select NET_VENDOR_INTEL
+	select IGB
+
+	select META_ETHERNET
+	select META_STORAGE
+	select META_XEN
+	select META_EFI
+	select META_BTRFS
+	select META_BASIC_NETWORKING
+	select META_IPTABLES
+	select META_SYSTEMD
+	select META_PCIE
+	select META_GPT
+	select META_IPMI
+	select META_INTEL

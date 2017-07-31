@@ -1,0 +1,7 @@
+config META_XEN
+	bool "Xen support"
+	depends on 64BIT
+
+	select HYPERVISOR_GUEST
+	select PARAVIRT
+	select XEN

@@ -1,0 +1,8 @@
+config META_ASTEROID
+	bool "AsteroidOS build requirements"
+
+	select NET
+	select MULTIUSER
+	select TASKSTATS
+	select TASK_XACCT
+	select TASK_IO_ACCOUNTING

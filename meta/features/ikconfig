@@ -1,0 +1,8 @@
+config META_IKCONFIG
+	bool "Enable Integrated Kernel Config"
+
+	default y if META_OPTIONS
+
+	select PROC_FS
+	select IKCONFIG
+	select IKCONFIG_PROC

@@ -1,0 +1,23 @@
+config META_IPTABLES
+	tristate "IPTables options"
+
+	select NET
+	select BRIDGE
+	select NETFILTER
+	select NETFILTER_ADVANCED
+	select NF_CONNTRACK
+	select NF_CONNTRACK_IPV4
+	select NETFILTER_XTABLES
+	select NETFILTER_XT_MATCH_RECENT
+	select NETFILTER_XT_MATCH_MULTIPORT
+	select NETFILTER_XT_MATCH_LIMIT
+	select NETFILTER_XT_TARGET_LOG
+	select INET
+	select NF_NAT_IPV4
+	select IP_NF_IPTABLES
+	select IP_NF_NAT
+	select IP_NF_TARGET_MASQUERADE
+	select IPV6
+	select IP6_NF_FILTER
+	select IP6_NF_IPTABLES
+	select IP6_NF_TARGET_REJECT

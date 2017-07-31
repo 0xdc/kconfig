@@ -1,0 +1,12 @@
+config META_SOUND
+	bool "Sound (HDA) support"
+
+	select PCI
+	select HAS_IOMEM
+	select SOUND
+	select SND
+	select SND_PCI
+	select SND_HDA
+	select SND_HDA_INTEL
+	select SND_HDA_CODEC_HDMI
+	select SND_HDA_CODEC_REALTEK

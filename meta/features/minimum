@@ -1,0 +1,37 @@
+config META_MINIMUM
+	bool "Minimum required options"
+
+	default y if META_OPTIONS
+
+	select TTY
+	select BINFMT_ELF
+	select BINFMT_SCRIPT
+
+	select BLOCK
+	select BLK_DEV_SD
+	select EXT4_FS
+
+	select PCI
+	select ATA
+	select SATA_AHCI
+
+	#select SHMEM
+	#select PROC_FS
+	#select SYSFS
+	#select TMPFS
+	#select DEVTMPFS
+	#select SECCOMP
+
+config META_INITRD
+	bool "initramfs support"
+
+	default y if META_OPTIONS
+
+	select BLK_DEV_INITRD
+	select META_SYSTEMD
+	select UNIX
+	#select PACKET
+	select TIMERFD
+	select FHANDLE
+	select FILE_LOCKING
+	select FUTEX

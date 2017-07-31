@@ -1,0 +1,5 @@
+config META_PCIE
+	bool "PCI Express"
+
+	select PCI
+	select PCIEPORTBUS

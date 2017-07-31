@@ -1,0 +1,8 @@
+config META_EFI
+	bool "EFI support"
+
+	select PCI
+	select HAS_IOMEM
+	select ACPI
+	select EFI
+	select EFI_STUB

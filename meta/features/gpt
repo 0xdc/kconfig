@@ -1,0 +1,7 @@
+config META_GPT
+	bool "GPT partition support"
+
+	select BLOCK
+	select PARTITION_ADVANCED
+	select MSDOS_PARTITION
+	select EFI_PARTITION

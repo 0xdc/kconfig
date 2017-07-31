@@ -1,0 +1,12 @@
+config META_NS
+	bool "Namespace support"
+
+	select SYSVIPC
+	select MULTIUSER
+	select NET
+	select NAMESPACES
+	select UTS_NS
+	select IPC_NS
+	select USER_NS
+	select PID_NS
+	select NET_NS

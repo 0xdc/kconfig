@@ -1,0 +1,25 @@
+config META_KAVA
+	bool "Kava"
+
+	select 64BIT
+
+	select META_PCIE
+	select META_STORAGE
+	select META_SOUND
+	select META_INTEL_HYPERTHREADING
+
+	select DRM
+	select DRM_RADEON
+	select DRM_I915
+
+	select NET
+	select NETDEVICES
+	select ETHERNET
+	select NET_VENDOR_REALTEK
+	select R8169
+
+	select PCI
+	select HAS_IOMEM
+	select I2C
+	select I2C_SMBUS
+	select I2C_I801

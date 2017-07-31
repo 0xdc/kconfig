@@ -1,0 +1,10 @@
+config META_WLAN
+	bool "Wireless LAN support"
+
+	select HAS_DMA
+	select WIRELESS
+	select CFG80211
+	select MAC80211
+	select WLAN
+	select NET
+	select NETDEVICES

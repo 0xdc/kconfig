@@ -1,0 +1,6 @@
+config META_BTRFS
+	bool "btrfs support"
+
+	select BLOCK
+	select BTRFS_FS
+	select BTRFS_FS_POSIX_ACL

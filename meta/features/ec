@@ -1,0 +1,6 @@
+config META_EC_SYS
+	tristate "EC_SYS module support"
+
+	depends on MODULES
+	default m if META_OAK
+	select ACPI_EC_DEBUGFS

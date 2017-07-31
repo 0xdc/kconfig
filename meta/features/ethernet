@@ -1,0 +1,6 @@
+config META_ETHERNET
+	bool "Ethernet support"
+
+	select NET
+	select NETDEVICES
+	select ETHERNET

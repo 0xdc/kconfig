@@ -1,0 +1,2 @@
+config META_PARALLELLA
+	bool "Parallella"

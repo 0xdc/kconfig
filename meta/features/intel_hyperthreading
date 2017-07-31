@@ -1,0 +1,6 @@
+config META_INTEL_HYPERTHREADING
+	bool "Hyperthreading and SMP"
+
+	select META_INTEL
+	select SMP
+	select SCHED_SMT

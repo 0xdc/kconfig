@@ -1,0 +1,16 @@
+config META_IMA
+	bool "Integrity Management"
+
+	select SYSFS
+	select MULTIUSER
+	select SECURITY
+	select INTEGRITY
+	select IMA
+	select APPRAISE
+	select IMA_APPRAISE
+
+config META_EVM
+	bool "Extended Verification (requires IMA)"
+
+	select META_IMA
+	select EVM

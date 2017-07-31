@@ -1,0 +1,9 @@
+config META_SYSTEMD
+	bool "Gentoo Systemd support"
+
+	select NET
+	select NAMESPACES
+	select MULTIUSER
+	select GENTOO_LINUX
+	select GENTOO_LINUX_UDEV
+	select GENTOO_LINUX_INIT_SYSTEMD
