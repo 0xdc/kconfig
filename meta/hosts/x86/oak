@@ -23,15 +23,19 @@ config META_OAK
 	select META_SYSTEMD
 	select META_V4L2
 	select META_VIRT
+	select META_VIRTIO
+	select META_CONTAINER
 	select META_WLAN
 
-	select MODULES # Needs RTS5229 and EC_SYS as external module
-	select FUSE_FS
+	# Needs RTS5229, EC_SYS and BT_ATH3K as external module
+	# ATH3K could be built-in if firmware was also pulled in to the kernel
+	select MODULES
+
+	select FUSE_FS # For fuse-exfat support
 
 	select E1000E
 
 	select WLAN_VENDOR_ATH
-	select ATH3K
 	select ATH9K
 
 	select HAS_IOMEM

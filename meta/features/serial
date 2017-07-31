@@ -1,4 +1,5 @@
 config META_SERIAL
 	bool "Serial (USB) support"
 
-	select PL2303
+	select USB_SERIAL
+	select USB_SERIAL_PL2303

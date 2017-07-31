@@ -5,6 +5,25 @@ config META_VIRT
 	select MULTIUSER
 	select HIGH_RES_TIMERS
 	select VIRTUALIZATION
-	select VIRTIO
 	select KVM
 	select KVM_INTEL if CPU_SUP_INTEL
+	select VHOST_NET
+	select TUN
+
+	select MACVLAN
+	select MACVTAP
+
+config META_VIRTIO
+	bool "VirtIO support"
+
+	select VIRTIO
+	select VIRTIO_NET
+	select VIRTIO_BLK
+	select NET_9P
+	select NET_9P_VIRTIO
+
+config META_CONTAINER
+	bool "Container support"
+
+	select VETH
+	select OVERLAY_FS

@@ -4,4 +4,11 @@ config META_BT
 	select NET
 	select BT
 	select BT_HCIBTUSB if USB
-	select ATH3K
+
+config META_BTATH3K
+	tristate "ATH3K support"
+
+	default m if META_OAK
+
+	select META_BT
+	select BT_ATH3K

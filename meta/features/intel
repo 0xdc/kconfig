@@ -4,3 +4,7 @@ config META_INTEL
 	select PREEMPT
 	select PREEMPT_RCU
 	select CPU_SUP_INTEL
+	select CPU_FREQ
+	select CPU_FREQ_GOV_POWERSAVE
+	select CPU_FREQ_GOV_ONDEMAND
+	select CPU_FREQ_STAT

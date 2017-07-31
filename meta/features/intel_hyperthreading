@@ -4,3 +4,4 @@ config META_INTEL_HYPERTHREADING
 	select META_INTEL
 	select SMP
 	select SCHED_SMT
+	select X86_INTEL_PSTATE
