@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm /etc/systemd/system/kexec.target.wants/*
+systemctl enable --now kexec-load@$2.service

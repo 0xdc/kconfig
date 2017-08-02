@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if test -x /usr/sbin/grub-mkconfig; then
+	grub=grub-mkconfig
+elif test -x /usr/sbin/grub2-mkconfig; then
+	grub=grub2-mkconfig
+fi
+
+$grub -o /boot/grub/grub.cfg
