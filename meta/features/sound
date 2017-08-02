@@ -10,3 +10,12 @@ config META_SOUND
 	select SND_HDA_INTEL
 	select SND_HDA_CODEC_HDMI
 	select SND_HDA_CODEC_REALTEK
+
+config META_USB_REC
+	bool "USB Recording support"
+
+	select USB
+	select SOUND
+	select SND
+	select SND_USB
+	select SND_USB_AUDIO
