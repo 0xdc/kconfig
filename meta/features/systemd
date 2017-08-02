@@ -9,6 +9,7 @@ config META_SYSTEMD
 	select GENTOO_LINUX_INIT_SYSTEMD
 
 	select CHECKPOINT_RESTORE
+	select DMI
 	select DMIID
 	select TMPFS_XATTR
 	select TMPFS_POSIX_ACL
