@@ -17,5 +17,6 @@ make silentoldconfig
 kver=$(make kernelrelease)
 
 make -j$(grep -c MHz /proc/cpuinfo) bzImage
-make modules tar-pkg
+make -j$(grep -c MHz /proc/cpuinfo) modules
+make tar-pkg
 make kernelrelease
