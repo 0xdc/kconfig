@@ -12,8 +12,7 @@ $ cd kconfig
 $ git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 $ git fetch stable
 $ git checkout -b linux-4.9.y master
-$ git merge --allow-unrelated-histories stable/linux-4.9.y
-$ git checkout --ours Kconfig && git commit -m "Merge stable branch"
+$ git merge --allow-unrelated-histories -X ours stable/linux-4.9.y
 $ make defconfig
 $ ./build
 # rsync -r meta/install.d/ /etc/kernel/install.d
