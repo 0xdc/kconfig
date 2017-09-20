@@ -19,6 +19,7 @@ config META_ALL
 
 	select META_IKCONFIG
 	select META_ASTEROID
+	select META_DOCKER_I_ARDLY_KNEW_ER
 
 comment "Hosts"
 
@@ -49,6 +50,7 @@ source "meta/features/asteroid"
 source "meta/features/bt"
 source "meta/features/btrfs"
 source "meta/features/cifs"
+source "meta/features/docker"
 source "meta/features/ec"
 source "meta/features/efi"
 source "meta/features/electron"

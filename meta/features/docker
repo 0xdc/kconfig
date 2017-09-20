@@ -1,0 +1,53 @@
+config META_DOCKER_I_ARDLY_KNEW_ER
+  bool "Docker support"
+  depends on META_OPTIONS
+
+  select CGROUP_DEVICE
+  select MEMCG
+  select CGROUP_PIDS
+  select MEMCG_SWAP
+  select MEMCG_SWAP_ENABLED
+  select BLK_CGROUP
+  select BLK_DEV_THROTTLING
+  select CFQ_GROUP_IOSCHED
+  select CGROUP_PERF
+
+  select HUGETLB_PAGE
+  select CGROUP_HUGETLB
+
+  select NET_SCHED
+  select NET_CLS_CGROUP
+
+  select FAIR_GROUP_SCHED
+  select CFS_BANDWIDTH
+
+  select CGROUPD
+  select CGROUP_SCHED
+  select RT_GROUP_SCHED
+
+  select NET
+  select INET
+  select NETFILTER
+  select IP_VS
+
+  select IP_VS_PROTO_TCP
+  select IP_VS_PROTO_UDP
+
+  select NF_CONNTRACK
+  select IP_VS_NFCT
+
+  select IP_VS_RR
+
+  select NETDEVICES
+  select NET_CORE
+  select VXLAN
+
+  select NET_L3_MASTER_DEV
+  select IPVLAN
+
+  select DUMMY
+  select CGROUP_NET_PRIO
+
+  select MD
+  select BLK_DEV_DM
+  select DM_THIN_PROVISIONING
