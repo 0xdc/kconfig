@@ -1,5 +1,8 @@
 config META_SERIAL
 	bool "Serial (USB) support"
 
+	select TTY
+	select USB
+	select USB_SUPPORT
 	select USB_SERIAL
 	select USB_SERIAL_PL2303

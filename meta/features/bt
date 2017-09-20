@@ -10,5 +10,9 @@ config META_BTATH3K
 
 	default m if META_OAK
 
-	select META_BT
+	select NET
+	select BT
+	select USB
+	select USB_SUPPORT
+	select BT_HCIBTUSB
 	select BT_ATH3K

@@ -2,6 +2,9 @@ config META_VIRT
 	bool "Virtualisation"
 
 	select NET
+	select INET
+	select NETDEVICES
+	select NET_CORE
 	select MULTIUSER
 	select HIGH_RES_TIMERS
 	select VIRTUALIZATION
@@ -16,6 +19,8 @@ config META_VIRT
 config META_VIRTIO
 	bool "VirtIO support"
 
+	select NETDEVICES
+	select NET_CORE
 	select VIRTIO
 	select VIRTIO_NET
 	select VIRTIO_BLK
@@ -25,5 +30,7 @@ config META_VIRTIO
 config META_CONTAINER
 	bool "Container support"
 
+	select NETDEVICES
+	select NET_CORE
 	select VETH
 	select OVERLAY_FS

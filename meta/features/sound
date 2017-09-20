@@ -15,6 +15,7 @@ config META_USB_REC
 	bool "USB Recording support"
 
 	select USB
+	select USB_SUPPORT
 	select SOUND
 	select SND
 	select SND_USB
