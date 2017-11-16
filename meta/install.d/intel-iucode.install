@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# $1: add/remove
+# $2: kver
+# $3: /boot/machine-id/kernel-ver/
+# $4: image-name
+
+set -e
+test x"$1" = x"add"
+
+emerge -u1 intel-microcode iucode_tool
+test -f $3/intel_ucode || iucode_tool -S --write-earlyfw=$3/intel_ucode /lib/firmware/intel-ucode/*
+
+# convert /$ESP/$machineid/$kver into /$ESP/loader/entries/$machineid-$kver.conf
+conf=$(awk -F/ 'BEGIN{OFS="/"}{print "", $2, "loader", "entries", $3 "-" $4 ".conf"}' <<<"$3")
+# protect the config
+if ! grep -q intel_ucode "$conf"; then
+	# trim ESP
+	machineid=$(</etc/machine-id)
+	path="/$machineid/$2"
+	sed -i "/^linux/ainitrd     $path/intel_ucode" "$conf"
+fi
