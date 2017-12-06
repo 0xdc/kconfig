@@ -19,4 +19,4 @@ kver=$(make kernelrelease)
 make -j$(nproc) bzImage
 make -j$(nproc) modules
 make tar-pkg
-make kernelrelease
+make kernelrelease | tee latest
