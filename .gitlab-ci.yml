@@ -6,6 +6,7 @@ stages:
 - config
 
 config:
+    stage: config
     script:
     - make defconfig
     artifacts:
