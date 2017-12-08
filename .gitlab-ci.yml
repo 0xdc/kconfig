@@ -14,7 +14,7 @@ config:
     script:
     - "git checkout -b $CI_JOB_ID $CI_COMMIT_REF_NAME"
     - "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
-    - "for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*); do make tinyconfig >/dev/null; echo $i; ./scripts/config -e meta_options; ./scripts/config -e $i; make olddefconfig | grep '^warning:'; done"
+    - "for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*); do make tinyconfig >/dev/null; echo $i; ./scripts/config -e meta_options; ./scripts/config -e $i; make olddefconfig | grep '^warning:' || true; done"
     - make defconfig
     - "./scripts/config -e meta_options"
     - "./scripts/config -e meta_all"
