@@ -1,0 +1,13 @@
+before_script:
+- "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
+- git fetch stable
+
+stages:
+- config
+- build
+
+config:
+    script:
+    - make defconfig
+    artifacts:
+    - .config
