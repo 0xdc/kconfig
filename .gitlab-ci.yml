@@ -9,12 +9,19 @@ stages:
 - config
 - build
 
-config:
+check:
     stage: config
     script:
     - "git checkout -b $CI_JOB_ID $CI_COMMIT_SHA"
     - "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
     - ./check
+    allow_failure: true
+
+config:
+    stage: config
+    script:
+    - "git checkout -b $CI_JOB_ID $CI_COMMIT_SHA"
+    - "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
     - ./config
     artifacts:
         paths:
