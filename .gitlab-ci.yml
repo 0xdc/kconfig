@@ -27,7 +27,9 @@ build:
     - make -j$$(nproc) bzImage
     - make -j$$(nproc) modules
     - make tar-pkg
+    - "make kernelrelease | tee latest"
     artifacts:
         paths:
         - linux-*.tar
         - .config
+        - latest
