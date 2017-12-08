@@ -13,7 +13,8 @@ $ git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/l
 $ git fetch stable
 $ git checkout -b linux-4.9.y master
 $ git merge --allow-unrelated-histories -X ours stable/linux-4.9.y
-$ make defconfig
+$ ./config
+$ ./check
 $ ./build
 # rsync -r meta/install.d/ /etc/kernel/install.d
 # make modules_install
