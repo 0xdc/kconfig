@@ -4,7 +4,6 @@ before_script:
 
 stages:
 - config
-- build
 
 config:
     script:
