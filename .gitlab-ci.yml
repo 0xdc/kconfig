@@ -1,11 +1,9 @@
 variables:
     KVER: "4.9"
-
+    
 before_script:
 - "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git || true"
 - "git fetch --no-tags stable"
-- "git checkout -b $CI_JOB_ID master || git checkout $CI_JOB_ID"
-- "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
 
 stages:
 - config
@@ -14,7 +12,19 @@ stages:
 config:
     stage: config
     script:
+    - "git checkout -b $CI_JOB_ID $CI_COMMIT_REF_NAME"
+    - "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
+    - "for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*); do make tinyconfig >/dev/null; echo $i; ./scripts/config -e meta_options; ./scripts/config -e $i; make olddefconfig | grep '^warning:'; done"
     - make defconfig
+    - "./scripts/config -e meta_options"
+    - "./scripts/config -e meta_all"
+    - "./scripts/config -d HAMRADIO"
+    - "./scripts/config -d IPV6_SIT"
+    - "./scripts/config --set-str UEVENT_HELPER_PATH "" || true"
+    - "./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true"
+    - "./scripts/config -e LOCALVERSION_AUTO"
+    - make olddefconfig
+    - make silentoldconfig
     artifacts:
         paths:
         - .config
@@ -22,7 +32,10 @@ config:
 build:
     stage: build
     script:
-    - ./build
+    - "git checkout -b $CI_JOB_ID stable/linux-$KVER.y"
+    - make modules
+    - make bzImage
+    - make tar-pkg
     artifacts:
         paths:
         - linux-*.tar
