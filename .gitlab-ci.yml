@@ -12,7 +12,7 @@ stages:
 config:
     stage: config
     script:
-    - "git checkout -b $CI_JOB_ID $CI_COMMIT_REF_NAME"
+    - "git checkout -b $CI_JOB_ID $CI_COMMIT_SHA"
     - "git merge --no-stat --allow-unrelated-histories -X ours stable/linux-$KVER.y"
     - ./check
     - ./config
