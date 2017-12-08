@@ -22,10 +22,19 @@ config META_VIRTIO
 	select NETDEVICES
 	select NET_CORE
 	select VIRTIO
+	select VIRTIO_CONSOLE
 	select VIRTIO_NET
+	select VIRTIO_PCI
+	select VIRTIO_RING
 	select VIRTIO_BLK
+	select VIRTIO_BLK_SCSI
+	select HW_RANDOM
+	select HW_RANDOM_VIRTIO
+	select 9P_FS
 	select NET_9P
 	select NET_9P_VIRTIO
+	select FB
+	select FB_VESA
 
 config META_CONTAINER
 	bool "Container support"
