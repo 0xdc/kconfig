@@ -3,7 +3,7 @@ variables:
     
 before_script:
 - "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git || true"
-- "git fetch --no-tags stable"
+- "git fetch stable"
 
 stages:
 - prep
