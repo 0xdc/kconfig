@@ -26,6 +26,7 @@ config:
     artifacts:
         paths:
         - .config
+        expire_in: "1 day"
 
 build:
     stage: build
@@ -40,3 +41,4 @@ build:
         - linux-*.tar
         - .config
         - latest
+        expire_in: "3 months"
