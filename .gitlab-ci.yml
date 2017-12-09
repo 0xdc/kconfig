@@ -3,7 +3,7 @@ variables:
     
 before_script:
 - "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git || true"
-- "git fetch stable"
+- "git fetch --no-tags stable"
 
 stages:
 - prep
@@ -31,6 +31,7 @@ config:
 build:
     stage: build
     script:
+    - "git fetch --tags stable"
     - "git checkout -b $CI_JOB_ID stable/linux-$KVER.y"
     - make -j$(nproc) bzImage
     - make -j$(nproc) modules
