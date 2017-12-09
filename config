@@ -9,6 +9,5 @@ make defconfig
 ./scripts/config -d IPV6_SIT
 ./scripts/config --set-str UEVENT_HELPER_PATH "" || true
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
-./scripts/config -e LOCALVERSION_AUTO
 make olddefconfig
 make silentoldconfig
