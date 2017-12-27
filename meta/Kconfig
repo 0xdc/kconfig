@@ -20,6 +20,7 @@ config META_ALL
 	select META_IKCONFIG
 	select META_ASTEROID
 	select META_DOCKER_I_ARDLY_KNEW_ER
+	select META_VFIO
 
 comment "Hosts"
 

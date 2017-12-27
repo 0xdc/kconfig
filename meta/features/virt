@@ -43,3 +43,11 @@ config META_CONTAINER
 	select NET_CORE
 	select VETH
 	select OVERLAY_FS
+
+config META_VFIO
+	bool "VFIO/PCI support"
+
+	select IOMMU_API
+	select VFIO
+	select VFIO_PCI
+	select VFIO_PCI_VGA
