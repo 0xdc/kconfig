@@ -1,5 +1,6 @@
 config META_VIRT
 	bool "Virtualisation"
+	depends on 64BIT
 
 	select NET
 	select INET
@@ -46,6 +47,8 @@ config META_CONTAINER
 
 config META_VFIO
 	bool "VFIO/PCI support"
+
+	depends on 64BIT
 
 	select IOMMU_API
 	select VFIO
