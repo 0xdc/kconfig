@@ -54,3 +54,7 @@ config META_VFIO
 	select VFIO
 	select VFIO_PCI
 	select VFIO_PCI_VGA
+	select IOMMU_SUPPORT
+	select PCI_MSI
+	select INTEL_IOMMU if CPU_SUP_INTEL
+	select IRQ_REMAP
