@@ -58,3 +58,4 @@ config META_VFIO
 	select PCI_MSI
 	select INTEL_IOMMU if CPU_SUP_INTEL
 	select IRQ_REMAP
+	select CALGARY_IOMMU
