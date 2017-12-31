@@ -45,8 +45,8 @@ config META_CONTAINER
 	select VETH
 	select OVERLAY_FS
 
-config META_VFIO
-	bool "VFIO/PCI support"
+config META_IOMMU
+	bool "IOMMU (VT-d) support"
 
 	depends on 64BIT
 
