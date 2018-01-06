@@ -1,5 +1,6 @@
 config META_VIRT
 	bool "Virtualisation"
+	depends on 64BIT
 
 	select NET
 	select INET
@@ -43,3 +44,20 @@ config META_CONTAINER
 	select NET_CORE
 	select VETH
 	select OVERLAY_FS
+
+config META_IOMMU
+	bool "IOMMU (VT-d) support"
+
+	depends on 64BIT
+
+	select IOMMU_API
+	select VFIO
+	select VFIO_PCI
+	select VFIO_PCI_VGA
+	select IOMMU_SUPPORT
+	select PCI_MSI
+	select INTEL_IOMMU if CPU_SUP_INTEL
+	select INTEL_IOMMU_SVM if CPU_SUP_INTEL
+	select INTEL_IOMMU_DEFAULT_ON if CPU_SUP_INTEL && (META_OAK && !META_KAVA)
+	select IRQ_REMAP
+	select CALGARY_IOMMU
