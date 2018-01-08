@@ -16,3 +16,4 @@ config META_MAPLE
 	select NET_VENDOR_INTEL
 	select E1000E
 	select XFS_FS
+	select XFS_POSIX_ACL
