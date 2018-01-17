@@ -9,5 +9,10 @@ make defconfig
 ./scripts/config -d IPV6_SIT
 ./scripts/config --set-str UEVENT_HELPER_PATH "" || true
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
+
+if test "$HOSTNAME" = "oak"; then
+	./scripts/config -e LOCALVERSION_AUTO
+fi
+
 make olddefconfig
 make silentoldconfig
