@@ -1,0 +1,11 @@
+config META_AMDGPU
+    tristate "AMD GPU support"
+    
+    default m if META_KAVA
+    
+    select DRM_AMDGPU
+	select DRM_AMDGPU_SI
+	select DRM_AMD_ACP
+	select AMD_IOMMU
+	select AMD_IOMMU_V2
+	select HSA_AMD
