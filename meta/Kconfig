@@ -46,6 +46,7 @@ endif
 menu "Advanced selection"
 	visible if META_OPTIONS
 
+source "meta/features/amdgpu"
 source "meta/features/asteroid"
 source "meta/features/bt"
 source "meta/features/btrfs"
