@@ -11,12 +11,6 @@ config META_KAVA
 
 	select DRM
 	select DRM_I915
-	select DRM_AMDGPU
-	select DRM_AMDGPU_SI
-	select DRM_AMD_ACP
-	select AMD_IOMMU
-	select AMD_IOMMU_V2
-	select HSA_AMD
 
 	select NET
 	select NETDEVICES
