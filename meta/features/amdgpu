@@ -1,7 +1,11 @@
 config META_AMDGPU
     tristate "AMD GPU support"
+    depends on 64BIT
     
     default m if META_KAVA
+    
+    select IOMMU_SUPPORT
+    select DRM
     
     select DRM_AMDGPU
 	select DRM_AMDGPU_SI
