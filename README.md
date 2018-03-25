@@ -11,8 +11,8 @@ $ git clone https://github.com/0xdc/kconfig
 $ cd kconfig
 $ git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 $ git fetch stable
-$ git checkout -b linux-4.9.y master
-$ git merge --allow-unrelated-histories -X ours stable/linux-4.9.y
+$ git checkout -b linux-4.14.y master
+$ git merge --allow-unrelated-histories -X ours stable/linux-4.14.y
 $ ./config
 $ ./check
 $ ./build

@@ -4,4 +4,7 @@ config META_XEN
 
 	select HYPERVISOR_GUEST
 	select PARAVIRT
+	select NETDEVICES
 	select XEN
+	select XEN_BLKDEV_BACKEND
+	select XEN_NETDEV_BACKEND

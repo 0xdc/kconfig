@@ -10,7 +10,6 @@ config META_KAVA
 	select META_IOMMU
 
 	select DRM
-	select DRM_RADEON
 	select DRM_I915
 
 	select NET
