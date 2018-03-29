@@ -16,6 +16,7 @@ config META_ALL
 	select META_MAPLE
 	select META_OAK
 	select META_KAVA
+	select META_ROUTER
 
 	select META_IKCONFIG
 	select META_ASTEROID
