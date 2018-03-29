@@ -1,0 +1,13 @@
+config META_PPP
+	tristate "PPP(oE) Support"
+
+	default m if META_ROUTER
+
+	select PPP
+	select PPP_BSDCOMP
+	select PPP_DEFLATE
+	select PPPOE
+	select PPP_ASYNC
+
+	# selecting for dependencies
+	select NETDEVICES
