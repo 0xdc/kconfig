@@ -43,6 +43,8 @@ source "meta/hosts/arm/snow"
 
 endif
 
+source "meta/hosts/router"
+
 menu "Advanced selection"
 	visible if META_OPTIONS
 
