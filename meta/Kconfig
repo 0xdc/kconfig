@@ -16,6 +16,7 @@ config META_ALL
 	select META_MAPLE
 	select META_OAK
 	select META_KAVA
+	select META_ROUTER
 
 	select META_IKCONFIG
 	select META_ASTEROID
@@ -43,6 +44,8 @@ source "meta/hosts/arm/snow"
 
 endif
 
+source "meta/hosts/router"
+
 menu "Advanced selection"
 	visible if META_OPTIONS
 
@@ -68,6 +71,7 @@ source "meta/features/minimum"
 source "meta/features/networking"
 source "meta/features/ns"
 source "meta/features/pcie"
+source "meta/features/ppp"
 source "meta/features/serial"
 source "meta/features/sound"
 source "meta/features/storage"
