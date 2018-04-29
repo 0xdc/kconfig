@@ -1,0 +1,8 @@
+config META_NFS_SERVER
+	tristate "NFS Server support"
+
+	default m if META_AZOLLA
+
+	select NFSD
+	select NFSD_V3
+	select NFSD_V4
