@@ -1,0 +1,9 @@
+config META_STEAM_CONTROLLER
+	tristate "Steam Controller support"
+
+	default m if META_KAVA
+	default m if META_OAK
+
+	select INPUT
+	select INPUT_MISC
+	select INPUT_UINPUT
