@@ -81,6 +81,7 @@ source "meta/features/storage"
 source "meta/features/systemd"
 source "meta/features/v4l2"
 source "meta/features/virt"
+source "meta/features/vlan"
 source "meta/features/wlan"
 source "meta/features/xen"
 
