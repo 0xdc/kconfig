@@ -1,0 +1,6 @@
+config META_VLAN
+	tristate "VLAN (802.1q) Support"
+
+	default m if META_ROUTER
+
+	select VLAN_8021Q

@@ -5,6 +5,7 @@ config META_SOUND
 	select HAS_IOMEM
 	select SOUND
 	select SND
+	select SND_DYNAMIC_MINORS
 	select SND_PCI
 	select SND_HDA
 	select SND_HDA_INTEL
