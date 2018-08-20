@@ -22,5 +22,3 @@ config META_SYSTEMD
 
 	# https://github.com/systemd/systemd/issues/2365
 	select IPV6_MULTIPLE_TABLES
-	select IPV6_MROUTE
-	select IPV6_MROUTE_MULTIPLE_TABLES
