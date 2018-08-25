@@ -8,7 +8,9 @@ config META_SYSTEMD
 	select GENTOO_LINUX_UDEV
 	select GENTOO_LINUX_INIT_SYSTEMD
 
+	select EXPERT
 	select CHECKPOINT_RESTORE
+
 	select DMI
 	select DMIID
 	select TMPFS_XATTR
