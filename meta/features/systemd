@@ -8,7 +8,9 @@ config META_SYSTEMD
 	select GENTOO_LINUX_UDEV
 	select GENTOO_LINUX_INIT_SYSTEMD
 
+	select EXPERT
 	select CHECKPOINT_RESTORE
+
 	select DMI
 	select DMIID
 	select TMPFS_XATTR
@@ -19,3 +21,6 @@ config META_SYSTEMD
 
 	select BPF_SYSCALL
 	select CGROUP_BPF
+
+	# https://github.com/systemd/systemd/issues/2365
+	select IPV6_MULTIPLE_TABLES
