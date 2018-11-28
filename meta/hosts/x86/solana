@@ -5,3 +5,5 @@ config META_SOLANA
 
 
 	select BLK_DEV_NVME
+	select ATH10K
+	select ATH10K_PCI
