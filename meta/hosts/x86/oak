@@ -3,6 +3,7 @@ config META_OAK
 
 	select 64BIT
 
+	select META_ATH9K
 	select META_BT
 	select META_BTRFS
 	select META_CIFS
@@ -36,8 +37,5 @@ config META_OAK
 	select FUSE_FS # For fuse-exfat support
 
 	select E1000E
-
-	select WLAN_VENDOR_ATH
-	select ATH9K
 
 	select HAS_IOMEM
