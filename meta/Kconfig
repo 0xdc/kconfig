@@ -33,6 +33,7 @@ source "meta/hosts/x86/maple"
 source "meta/hosts/x86/oak"
 source "meta/hosts/x86/rosemary"
 source "meta/hosts/x86/samus"
+source "meta/hosts/x86/solana"
 source "meta/hosts/x86/vanilla"
 
 endif

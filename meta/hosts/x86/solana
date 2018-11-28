@@ -1,0 +1,7 @@
+config META_SOLANA
+	tristate "Solana"
+
+	default m if META_ALL
+
+
+	select BLK_DEV_NVME
