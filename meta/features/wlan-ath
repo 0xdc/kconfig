@@ -1,5 +1,6 @@
 config META_ATH9K
 	tristate "ath9k wifi driver"
+	depends on META_WLAN
 
 	select WLAN_VENDOR_ATH
 	select ATH9K
@@ -7,6 +8,7 @@ config META_ATH9K
 config META_ATH10K
 	tristate "ath10k wifi driver"
 
+	depends on META_WLAN
 	select WLAN_VENDOR_ATH
 	select ATH10K
 	select ATH10K_PCI
