@@ -6,3 +6,7 @@ config META_SOLANA
 	select META_WLAN
 	select META_ATH10K
 	select BLK_DEV_NVME
+
+	select THUNDERBOLT
+	select HOTPLUG_PCI_PCIE
+	select HOTPLUG_PCI_ACPI
