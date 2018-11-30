@@ -10,3 +10,5 @@ config META_SOLANA
 	select THUNDERBOLT
 	select HOTPLUG_PCI_PCIE
 	select HOTPLUG_PCI_ACPI
+
+	select DCDBAS
