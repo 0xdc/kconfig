@@ -1,5 +1,7 @@
 config META_SOUND
-	bool "Sound (HDA) support"
+	tristate "Sound (HDA) support"
+
+	default m if META_SOLANA || META_OAK || META_KAVA
 
 	select PCI
 	select HAS_IOMEM
