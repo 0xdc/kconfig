@@ -13,6 +13,7 @@ make defconfig
 case "$HOSTNAME" in
 	solana)
 		./scripts/config -m DRM_I915
+		./scripts/config -m SND_HDA_INTEL
 		;&
 	oak)
 		./scripts/config -e LOCALVERSION_AUTO
