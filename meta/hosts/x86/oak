@@ -9,7 +9,6 @@ config META_OAK
 	select META_ETHERNET
 	select META_ELECTRON
 	select META_GPT
-	select META_I915
 	select META_IMA
 	select META_INTEL
 	select META_INTEL_HYPERTHREADING
