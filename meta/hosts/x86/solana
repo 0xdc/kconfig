@@ -8,6 +8,7 @@ config META_SOLANA
 	select BLK_DEV_NVME
 
 	select THUNDERBOLT
+	select HOTPLUG_PCI
 	select HOTPLUG_PCI_PCIE
 	select HOTPLUG_PCI_ACPI
 
