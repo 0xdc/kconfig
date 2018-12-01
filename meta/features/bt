@@ -1,5 +1,5 @@
 config META_BT
-	bool "Bluetooth"
+	tristate "Bluetooth"
 
 	default m if META_OAK || META_SOLANA
 
