@@ -13,3 +13,7 @@ config META_SOLANA
 	select HOTPLUG_PCI_ACPI
 
 	select DCDBAS
+
+	select MMC
+	select MISC_RTSX_PCI
+	select MMC_REALTEK_PCI
