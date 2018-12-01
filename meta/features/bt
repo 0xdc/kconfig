@@ -1,6 +1,8 @@
 config META_BT
 	bool "Bluetooth"
 
+	default m if META_OAK || META_SOLANA
+
 	select NET
 	select BT
 	select BT_HCIBTUSB if USB
@@ -8,7 +10,7 @@ config META_BT
 config META_BTATH3K
 	tristate "ATH3K support"
 
-	default m if META_OAK
+	default m if META_OAK || META_SOLANA
 
 	select NET
 	select BT

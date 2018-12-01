@@ -4,7 +4,6 @@ config META_OAK
 	select 64BIT
 
 	select META_ATH9K
-	select META_BT
 	select META_BTRFS
 	select META_CIFS
 	select META_ETHERNET
