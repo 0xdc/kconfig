@@ -11,7 +11,10 @@ make defconfig
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
 
 case "$HOSTNAME" in
-	oak|solana)
+	solana)
+		./scripts/config -m DRM_I915
+		;&
+	oak)
 		./scripts/config -e LOCALVERSION_AUTO
 		;;
 esac
