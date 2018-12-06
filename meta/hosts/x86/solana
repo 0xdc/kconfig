@@ -19,5 +19,6 @@ config META_SOLANA
 	select MMC_REALTEK_PCI
 
 	select ACPI_WMI
+	select DELL_SMBIOS
 	select DELL_WMI
 	select DELL_SMBIOS_WMI
