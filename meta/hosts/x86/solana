@@ -15,6 +15,7 @@ config META_SOLANA
 	# smbios
 	select DCDBAS
 
+	# SD card reader
 	select MMC
 	select MISC_RTSX_PCI
 	select MMC_REALTEK_PCI
