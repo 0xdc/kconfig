@@ -29,5 +29,4 @@ config META_SOLANA
 	select INTEL_HID_EVENT
 
 	# Touchscreen
-	select PWM
 	select MFD_INTEL_LPSS_PCI
