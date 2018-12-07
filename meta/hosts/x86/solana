@@ -12,6 +12,7 @@ config META_SOLANA
 	select HOTPLUG_PCI_PCIE
 	select HOTPLUG_PCI_ACPI
 
+	# smbios
 	select DCDBAS
 
 	select MMC
