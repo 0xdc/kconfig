@@ -24,3 +24,6 @@ config META_SOLANA
 	select DELL_SMBIOS
 	select DELL_WMI
 	select DELL_SMBIOS_WMI
+
+	# Airplane-mode
+	select INTEL_HID_EVENT
