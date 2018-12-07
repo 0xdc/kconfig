@@ -27,3 +27,6 @@ config META_SOLANA
 
 	# Airplane-mode
 	select INTEL_HID_EVENT
+
+	# Touchscreen
+	select PWM
