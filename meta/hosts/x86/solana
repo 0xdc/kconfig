@@ -14,16 +14,15 @@ config META_SOLANA
 
 	# smbios
 	select DCDBAS
+	select ACPI_WMI
+	select DELL_SMBIOS
+	select DELL_WMI
+	select DELL_SMBIOS_WMI
 
 	# SD card reader
 	select MMC
 	select MISC_RTSX_PCI
 	select MMC_REALTEK_PCI
-
-	select ACPI_WMI
-	select DELL_SMBIOS
-	select DELL_WMI
-	select DELL_SMBIOS_WMI
 
 	# Airplane-mode
 	select INTEL_HID_EVENT
