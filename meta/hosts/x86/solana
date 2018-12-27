@@ -35,3 +35,6 @@ config META_SOLANA
 
 	# MultiTouchPad
 	select HID_MULTITOUCH
+
+	# USB-C dongle w/ gig-e
+	select USB_RTL8152
