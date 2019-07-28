@@ -51,3 +51,5 @@ config META_DOCKER_I_ARDLY_KNEW_ER
   select MD
   select BLK_DEV_DM
   select DM_THIN_PROVISIONING
+
+  select NETFILTER_XT_MATCH_IPVS

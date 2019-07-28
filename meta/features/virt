@@ -33,6 +33,7 @@ config META_VIRTIO
 	select HW_RANDOM
 	select HW_RANDOM_VIRTIO
 	select 9P_FS
+	select 9P_FS_POSIX_ACL
 	select NET_9P
 	select NET_9P_VIRTIO
 	select FB
@@ -62,3 +63,20 @@ config META_IOMMU
 	select INTEL_IOMMU_DEFAULT_ON if CPU_SUP_INTEL && (META_OAK && !META_KAVA)
 	select IRQ_REMAP
 	select CALGARY_IOMMU
+
+config META_LIBVIRT
+	tristate "libvirt requirements"
+
+	default y if META_ALL
+
+	select CONFIG_BRIDGE_EBT_MARK_T
+	select CONFIG_BRIDGE_NF_EBTABLES
+	select CONFIG_NETFILTER_XT_CONNMARK
+	select CONFIG_NETFILTER_XT_TARGET_CHECKSUM
+	select CONFIG_BRIDGE_EBT_T_NAT
+	select CONFIG_NET_ACT_POLICE
+	select CONFIG_NET_CLS_FW
+	select CONFIG_NET_CLS_U32
+	select CONFIG_NET_SCH_HTB
+	select CONFIG_NET_SCH_INGRESS
+	select CONFIG_NET_SCH_SFQ

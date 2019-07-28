@@ -33,6 +33,7 @@ source "meta/hosts/x86/maple"
 source "meta/hosts/x86/oak"
 source "meta/hosts/x86/rosemary"
 source "meta/hosts/x86/samus"
+source "meta/hosts/x86/solana"
 source "meta/hosts/x86/vanilla"
 
 endif
@@ -60,6 +61,7 @@ source "meta/features/efi"
 source "meta/features/electron"
 source "meta/features/ethernet"
 source "meta/features/gpt"
+source "meta/features/i915"
 source "meta/features/ikconfig"
 source "meta/features/ima+evm"
 source "meta/features/input"
@@ -83,6 +85,7 @@ source "meta/features/v4l2"
 source "meta/features/virt"
 source "meta/features/vlan"
 source "meta/features/wlan"
+source "meta/features/wlan-ath"
 source "meta/features/xen"
 
 endmenu

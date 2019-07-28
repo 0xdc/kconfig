@@ -9,10 +9,17 @@ make defconfig
 ./scripts/config -d IPV6_SIT
 ./scripts/config --set-str UEVENT_HELPER_PATH "" || true
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
+./scripts/config -m SND_HDA_INTEL
 
-if test "$HOSTNAME" = "oak"; then
-	./scripts/config -e LOCALVERSION_AUTO
-fi
+case "$HOSTNAME" in
+	solana)
+		./scripts/config -m DRM_I915
+		./scripts/config -d LOGO
+		;&
+	oak)
+		./scripts/config -e LOCALVERSION_AUTO
+		;;
+esac
 
 make olddefconfig
 make silentoldconfig

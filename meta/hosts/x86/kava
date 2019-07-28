@@ -5,12 +5,9 @@ config META_KAVA
 
 	select META_PCIE
 	select META_STORAGE
-	select META_SOUND
 	select META_INTEL_HYPERTHREADING
 	select META_IOMMU
 
-	select DRM
-	select DRM_I915
 
 	select NET
 	select NETDEVICES

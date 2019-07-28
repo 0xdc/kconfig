@@ -1,0 +1,40 @@
+config META_SOLANA
+	tristate "Solana"
+
+	default m if META_ALL
+
+	select META_WLAN
+	select META_ATH10K
+	select BLK_DEV_NVME
+
+	# Left-side USB ports
+	select HOTPLUG_PCI
+	select HOTPLUG_PCI_PCIE
+	select HOTPLUG_PCI_ACPI
+
+	# smbios
+	select DCDBAS
+	select ACPI_WMI
+	select DELL_SMBIOS
+	select DELL_WMI
+	select DELL_SMBIOS_WMI
+
+	# SD card reader
+	select MMC
+	select MISC_RTSX_PCI
+	select MMC_REALTEK_PCI
+
+	# Airplane-mode
+	select INTEL_HID_EVENT
+
+	# Touchscreen
+	select MFD_INTEL_LPSS_PCI
+	select INTEL_LPSS_PCI
+	select I2C_HID
+	select I2C_DESIGNWARE_PLATFORM
+
+	# MultiTouchPad
+	select HID_MULTITOUCH
+
+	# USB-C dongle w/ gig-e
+	select USB_RTL8152

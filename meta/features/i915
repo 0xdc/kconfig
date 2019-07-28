@@ -1,0 +1,7 @@
+config META_I915
+	tristate "Intel i915 DRM graphics support"
+
+	default m if META_KAVA || META_OAK || META_SOLANA
+
+	select DRM
+	select DRM_I915
