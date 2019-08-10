@@ -4,3 +4,12 @@ config META_ETHERNET
 	select NET
 	select NETDEVICES
 	select ETHERNET
+
+config META_USB_ETHERNET
+	tristate "USB Ethernet"
+
+	default m if META_ALL
+
+	select USB_USBNET
+	select USB_NET_AX8817X
+	select USB_NET_AX88179_178A
