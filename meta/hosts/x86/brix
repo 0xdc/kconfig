@@ -4,3 +4,7 @@ config META_BRIX
 	default m if META_ALL
 
 	select RTL8723AE
+
+	select CRYPTO_USER_API_SKCIPHER
+	select KEY_DH_OPERATIONS
+	select DES3_EDE_X86_64
