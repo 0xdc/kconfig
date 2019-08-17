@@ -14,7 +14,6 @@ $ git fetch stable
 $ git checkout -b linux-4.19.y master
 $ git merge --no-stat --allow-unrelated-histories -X ours stable/linux-4.19.y
 $ ./config
-$ ./check
 $ ./build
 # rsync -r meta/install.d/ /etc/kernel/install.d
 # make modules_install
