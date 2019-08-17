@@ -11,6 +11,8 @@ make defconfig
 ./scripts/config --set-str UEVENT_HELPER_PATH "" || true
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
 ./scripts/config -m SND_HDA_INTEL
+./scripts/config -m RTL_CARDS
+./scripts/config -m R8169
 
 case "$HOSTNAME" in
 	solana)
