@@ -12,10 +12,8 @@ config META_ALL
 	bool "Enable all options"
 
 	select META_AZOLLA
-	select META_BRIX
 	select META_MAPLE
 	select META_OAK
-	select META_KAVA
 	select META_ROUTER
 
 	select META_IKCONFIG

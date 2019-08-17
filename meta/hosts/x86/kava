@@ -1,5 +1,7 @@
 config META_KAVA
-	bool "Kava"
+	tristate "Kava"
+
+	default m if META_ALL
 
 	select 64BIT
 
