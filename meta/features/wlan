@@ -1,3 +1,19 @@
+config META_IWD
+	tristate "iNet wireless daemon support"
+
+	default m if META_BRIX
+
+	select CRYPTO_USER_API_SKCIPHER
+	select KEY_DH_OPERATIONS
+	select CRYPTO_DES3_EDE_X86_64
+
+	select ASYMMETRIC_KEY_TYPE
+	select ASYMMETRIC_PUBLIC_KEY_SUBTYPE
+	select PKCS7_MESSAGE_PARSER
+	select X509_CERTIFICATE_PARSER
+	select PKCS8_PRIVATE_KEY_PARSER
+
+
 config META_WLAN
 	bool "Wireless LAN support"
 
