@@ -11,10 +11,9 @@ $ git clone https://github.com/0xdc/kconfig
 $ cd kconfig
 $ git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 $ git fetch stable
-$ git checkout -b linux-4.14.y master
-$ git merge --allow-unrelated-histories -X ours stable/linux-4.14.y
+$ git checkout -b linux-4.19.y master
+$ git merge --no-stat --allow-unrelated-histories -X ours stable/linux-4.19.y
 $ ./config
-$ ./check
 $ ./build
 # rsync -r meta/install.d/ /etc/kernel/install.d
 # make modules_install

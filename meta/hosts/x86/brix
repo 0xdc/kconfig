@@ -1,2 +1,8 @@
 config META_BRIX
-	bool "Brix"
+	tristate "Brix"
+
+	default m if META_ALL
+
+	select RTL8723AE
+
+	select FRAMEBUFFER_CONSOLE_DEFERRED_TAKEOVER

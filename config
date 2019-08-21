@@ -7,12 +7,21 @@ make defconfig
 ./scripts/config -e meta_all
 ./scripts/config -d HAMRADIO
 ./scripts/config -d IPV6_SIT
+./scripts/config -d LOGO
 ./scripts/config --set-str UEVENT_HELPER_PATH "" || true
 ./scripts/config --set-val CONFIG_SND_HDA_PREALLOC_SIZE 2048 || true
+./scripts/config -m SND_HDA_INTEL
+./scripts/config -m RTL_CARDS
+./scripts/config -m R8169
 
-if test "$HOSTNAME" = "oak"; then
-	./scripts/config -e LOCALVERSION_AUTO
-fi
+case "$HOSTNAME" in
+	solana)
+		./scripts/config -m DRM_I915
+		;&
+	oak)
+		./scripts/config -e LOCALVERSION_AUTO
+		;;
+esac
 
 make olddefconfig
 make silentoldconfig
