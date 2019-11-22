@@ -1,5 +1,5 @@
 variables:
-    KVER: "4.19"
+    KVER: "5.3"
     
 before_script:
 - "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git || true"
