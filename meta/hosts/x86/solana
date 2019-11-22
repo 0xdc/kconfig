@@ -9,11 +9,13 @@ config META_SOLANA
 
 	# Left-side USB ports
 	select HOTPLUG_PCI
+	imply PCIEPORTBUS
 	select HOTPLUG_PCI_PCIE
 	select HOTPLUG_PCI_ACPI
 
 	# smbios
 	select DCDBAS
+	select X86_PLATFORM_DEVICES
 	select ACPI_WMI
 	select DELL_SMBIOS
 	select DELL_WMI
