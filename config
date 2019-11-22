@@ -20,7 +20,7 @@ make defconfig
 
 
 case "$HOSTNAME" in
-	solana)
+	solana|dys*)
 		./scripts/config -m DRM_I915
 		;&
 	oak)
