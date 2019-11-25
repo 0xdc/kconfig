@@ -26,7 +26,6 @@ config META_OAK
 	select META_VIRT
 	select META_VIRTIO
 	select META_CONTAINER
-	select META_WLAN
 
 	# Needs RTS5229, EC_SYS and BT_ATH3K as external module
 	# ATH3K could be built-in if firmware was also pulled in to the kernel

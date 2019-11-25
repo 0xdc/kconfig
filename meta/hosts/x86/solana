@@ -3,7 +3,6 @@ config META_SOLANA
 
 	default m if META_ALL
 
-	select META_WLAN
 	select META_ATH10K
 	select BLK_DEV_NVME
 

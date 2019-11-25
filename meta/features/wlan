@@ -16,7 +16,9 @@ config META_IWD
 
 
 config META_WLAN
-	bool "Wireless LAN support"
+	tristate "Wireless LAN support"
+
+	default m if META_OAK || META_DYSNOMIA || META_SAMUS
 
 	select HAS_DMA
 	select WIRELESS
