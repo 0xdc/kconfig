@@ -85,6 +85,7 @@ source "meta/features/vlan"
 source "meta/features/wacom"
 source "meta/features/wlan"
 source "meta/features/wlan-ath"
+source "meta/features/wlan-iwl"
 source "meta/features/xen"
 
 endmenu

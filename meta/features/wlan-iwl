@@ -1,0 +1,13 @@
+config META_IWLWIFI
+	tristate "iwlwifi for ax200/ax1650i"
+
+	default m if META_DYSNOMIA
+
+	select IWLWIFI
+	select IWLMVM
+
+	imply WLAN
+	imply NETDEVICES
+	imply WLAN_VENDOR_INTEL
+	imply CFG80211
+	imply MAC80211
