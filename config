@@ -29,4 +29,3 @@ case "$HOSTNAME" in
 esac
 
 make olddefconfig
-make silentoldconfig
