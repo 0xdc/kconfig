@@ -52,6 +52,7 @@ config META_IOMMU
 
 	depends on 64BIT
 
+	select ACPI
 	select IOMMU_API
 	select VFIO
 	select VFIO_PCI
