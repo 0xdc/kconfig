@@ -1,6 +1,7 @@
 config META_VIRT
-	bool "Virtualisation"
+	tristate "Virtualisation"
 	depends on 64BIT
+	default m if META_DYSNOMIA
 
 	select NET
 	select INET

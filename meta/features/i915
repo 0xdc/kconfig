@@ -5,8 +5,17 @@ config META_I915
 
 	select DRM
 	select DRM_I915
-	select DRM_I915_GVT if 64BIT && (META_DYSNOMIA || META_SAMUS)
-	select DRM_I915_GVT_KVMGT if 64BIT && (META_DYSNOMIA || META_SAMUS)
-	imply KVM
-	imply VFIO_MDEV
-	imply VFIO_MDEV_DEVICE
+
+config META_KVMGT
+	tristate "i915 KVMGT/iGVT support"
+	depends on 64BIT
+	default m if META_DYSNOMIA || META_SAMUS
+
+	select DRM_I915_GVT
+	select DRM_I915_GVT_KVMGT
+
+	select KVM
+	select VFIO
+	select VFIO_MDEV
+	select VFIO_MDEV_DEVICE
+	select IOMMU_API
