@@ -1,5 +1,7 @@
 config META_OAK
-	bool "Oak"
+	tristate "Oak"
+
+	default m if META_ALL
 
 	select 64BIT
 

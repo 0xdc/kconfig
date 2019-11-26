@@ -18,7 +18,7 @@ config META_IWD
 config META_WLAN
 	tristate "Wireless LAN support"
 
-	default m if META_OAK || META_DYSNOMIA || META_SAMUS
+	default m if META_OAK || META_DYSNOMIA || META_SAMUS || META_SOLANA
 
 	select HAS_DMA
 	select WIRELESS
@@ -27,3 +27,4 @@ config META_WLAN
 	select WLAN
 	select NET
 	select NETDEVICES
+	imply RFKILL

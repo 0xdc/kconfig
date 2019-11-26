@@ -13,7 +13,6 @@ config META_ALL
 
 	select META_AZOLLA
 	select META_MAPLE
-	select META_OAK
 	select META_ROUTER
 
 	select META_IKCONFIG
