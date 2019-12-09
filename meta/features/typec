@@ -1,0 +1,9 @@
+config META_TYPEC
+	tristate "USB Type-C in userspace"
+
+	default m if META_DYSNOMIA
+
+	imply USB
+	imply TYPEC
+	imply TYPEC_UCSI
+	imply UCSI_ACPI
