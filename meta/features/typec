@@ -4,6 +4,8 @@ config META_TYPEC
 	default m if META_DYSNOMIA
 
 	imply USB
-	imply TYPEC
-	imply TYPEC_UCSI
-	imply UCSI_ACPI
+	select TYPEC
+	select TYPEC_UCSI
+	select UCSI_ACPI
+	select USB_SUPPORT
+	select ACPI
