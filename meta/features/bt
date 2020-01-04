@@ -7,6 +7,7 @@ config META_BT
 	select BT
 	select BT_HCIBTUSB if USB
 	select BT_HIDP
+	select BT_BNEP
 	select UHID
 
 config META_BTATH3K
