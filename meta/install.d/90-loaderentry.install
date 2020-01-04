@@ -70,7 +70,7 @@ else
     LOADER_ENTRY="$BOOT_ROOT/loader/entries/$MACHINE_ID-$KERNEL_VERSION.conf"
 fi
 
-dracut --uefi -f $ENTRY_DIR_ABS/bootx64.efi --kernel-image ${KERNEL_IMAGE} --kernel-cmdline "${BOOT_OPTIONS[*]}"
+dracut --uefi -f "$ENTRY_DIR_ABS/bootx64.efi" --kernel-image "${KERNEL_IMAGE}" --kernel-cmdline "${BOOT_OPTIONS[*]}" "$KERNEL_VERSION"
 
 mkdir -p "${LOADER_ENTRY%/*}" || {
     echo "Could not create loader entry directory '${LOADER_ENTRY%/*}'." >&2
