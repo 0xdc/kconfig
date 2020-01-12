@@ -19,6 +19,8 @@ make defconfig
 ./scripts/config -e PREEMPT
 
 ./scripts/config -d PM_TRACE_RTC
+./scripts/config -d CPU_FREQ_DEFAULT_GOV_USERSPACE
+./scripts/config -e CPU_FREQ_DEFAULT_GOV_POWERSAVE
 
 
 case "$HOSTNAME" in
