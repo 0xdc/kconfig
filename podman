@@ -2,7 +2,7 @@
 
 action=${1?-Need action (nconfig,check,build,merge)}
 kver=${2:-5.4}
-image=${3:-localhost/substrate/kbuild:20191231}
+image=${3:-localhost/substrate/systemd-stage4}
 
 if test -f /run/.containerenv; then
 	rsync -r /usr/src/kconfig /
