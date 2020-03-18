@@ -22,3 +22,26 @@ config META_IPTABLES
 	select IP6_NF_FILTER
 	select IP6_NF_IPTABLES
 	select IP6_NF_TARGET_REJECT
+
+config META_NFTABLES
+	tristate "NF tables"
+	default m if META_DYSNOMIA
+
+	select NF_TABLES
+	select NETFILTER
+
+	select NF_TABLES_INET
+	select NF_TABLES_IPV4
+	select NF_TABLES_IPV6
+	select NF_TABLES_SET
+
+	select NFT_CT
+	select NFT_COUNTER
+	select NFT_LIMIT
+	select NFT_LOG
+	select NFT_MASQ
+	select NFT_NAT
+	select NFT_REJECT
+
+	select NF_CONNTRACK
+	select NF_NAT
