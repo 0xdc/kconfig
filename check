@@ -3,7 +3,7 @@
 retcode=0
 for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*)
 do
-	make tinyconfig >/dev/null
+	make allnoconfig >/dev/null
 	echo $i
 	./scripts/config -e meta_options
 	./scripts/config -e $i
