@@ -13,6 +13,7 @@ make defconfig
 ./scripts/config -m SND_HDA_INTEL
 ./scripts/config -m RTL_CARDS
 ./scripts/config -m R8169
+./scripts/config -m DRM_I915
 
 ./scripts/config -d PREEMPT_NONE
 ./scripts/config -d PREEMPT_VOLUNTARY
@@ -24,9 +25,6 @@ make defconfig
 
 
 case "$HOSTNAME" in
-	solana|dys*)
-		./scripts/config -m DRM_I915
-		;&
 	oak)
 		./scripts/config -e LOCALVERSION_AUTO
 		;;
