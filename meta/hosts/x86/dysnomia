@@ -21,5 +21,6 @@ config META_DYSNOMIA
 
 	select MISC_FILESYSTEMS
 	select SQUASHFS
+	select SQUASHFS_LZO
 
 	select PSI
