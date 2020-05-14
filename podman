@@ -30,10 +30,19 @@ if test -f /run/.containerenv; then
 		;;
 	esac
 else
-	container=$(podman run -d -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@")
-	podman logs -f $container &
-	pid=$!
-	podman wait $container
-	kill $pid
-	echo "$(cut -c-16 <<<$container):/kconfig/"
+	case "$action" in
+	build)
+		container=$(podman run --detach -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@")
+		podman wait $container &
+		wait
+		podman logs --tail 10 $container
+		echo "$(cut -c-16 <<<$container):/kconfig/"
+		;;
+	*config)
+		podman run --rm -it -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
+		;;
+	*)
+		podman run --rm -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
+		;;
+	esac
 fi
