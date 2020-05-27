@@ -1,0 +1,11 @@
+config META_WACOM
+	tristate "Wacom pen support"
+
+	default m if META_DYSNOMIA
+
+	select USB_SUPPORT
+	select USB_ARCH_HAS_HCD
+	select USB
+	select USB_HID
+	select HID_WACOM
+	select PINCTRL_ICELAKE if META_DYSNOMIA

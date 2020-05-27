@@ -1,0 +1,48 @@
+#!/bin/bash
+
+action=${1?-Need action (nconfig,check,build,merge)}
+kver=${2:-5.4}
+image=${3:-localhost/substrate/systemd-stage4}
+
+if test -f /run/.containerenv; then
+	rsync -r /usr/src/kconfig /
+	pushd /kconfig
+
+	if test "$action" != "merge"; then
+		gitargs="-X ours"
+	fi
+	git merge --no-stat --allow-unrelated-histories $gitargs stable/linux-$kver.y -m "Merge linux-$kver.y"
+
+	case "$action" in
+	merge)
+		git mergetool --tool=vimdiff
+		;;
+	check)
+		./check
+		;;
+	*config)
+		make $action
+		make nconfig
+		;;
+	build)
+		./config
+		./build
+		;;
+	esac
+else
+	case "$action" in
+	build)
+		container=$(podman run --detach -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@")
+		podman wait $container &
+		wait
+		podman logs --tail 10 $container
+		echo "$(cut -c-16 <<<$container):/kconfig/"
+		;;
+	*config)
+		podman run --rm -it -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
+		;;
+	*)
+		podman run --rm -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
+		;;
+	esac
+fi

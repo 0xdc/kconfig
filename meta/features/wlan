@@ -5,8 +5,9 @@ config META_IWD
 
 	select CRYPTO_USER_API_SKCIPHER
 	select KEY_DH_OPERATIONS
-	select CRYPTO_DES3_EDE_X86_64
+	select CRYPTO_DES3_EDE_X86_64 if 64BIT
 
+	select KEYS
 	select ASYMMETRIC_KEY_TYPE
 	select ASYMMETRIC_PUBLIC_KEY_SUBTYPE
 	select PKCS7_MESSAGE_PARSER
@@ -15,7 +16,9 @@ config META_IWD
 
 
 config META_WLAN
-	bool "Wireless LAN support"
+	tristate "Wireless LAN support"
+
+	default m if META_OAK || META_DYSNOMIA || META_SAMUS || META_SOLANA
 
 	select HAS_DMA
 	select WIRELESS
@@ -24,3 +27,4 @@ config META_WLAN
 	select WLAN
 	select NET
 	select NETDEVICES
+	imply RFKILL

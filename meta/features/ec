@@ -4,3 +4,4 @@ config META_EC_SYS
 	depends on MODULES
 	default m if META_OAK
 	select ACPI_EC_DEBUGFS
+	imply ACPI

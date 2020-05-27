@@ -1,0 +1,26 @@
+config META_DYSNOMIA
+	tristate "Dysnomia"
+
+	default m if META_ALL
+
+	select INTEL_WMI_THUNDERBOLT
+	select ACPI_WMI
+	select X86_PLATFORM_DEVICES
+
+	select DELL_LAPTOP
+	imply BACKLIGHT_CLASS_DEVICE
+	imply ACPI_VIDEO
+	imply DELL_SMBIOS
+	imply RFKILL
+
+	select INTEL_RAPL
+	select POWERCAP
+
+	select X86_INTEL_LPSS
+	select ACPI
+
+	select MISC_FILESYSTEMS
+	select SQUASHFS
+	select SQUASHFS_LZO
+
+	select PSI
