@@ -2,7 +2,7 @@
 
 action=${1?-Need action (nconfig,check,build,merge)}
 kver=${2:-5.4}
-image=${3:-localhost/substrate/systemd-stage4}
+image=${3:-docker.io/applehq/gentoo-stage4:latest}
 
 if test -f /run/.containerenv; then
 	rsync -r /usr/src/kconfig /
