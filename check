@@ -3,11 +3,11 @@
 retcode=0
 for i in $(awk '/^config/{print$2}' meta/Kconfig meta/features/* meta/hosts/*/*)
 do
-	make tinyconfig >/dev/null
+	make allnoconfig >/dev/null
 	echo $i
 	./scripts/config -e meta_options
 	./scripts/config -e $i
-	make olddefconfig |& grep "^warning:"
+	make olddefconfig |& egrep "(:|=)"
 	ret=${PIPESTATUS[*]}
 	test x"$ret" = "x0 1" || retcode=$(( $retcode + 1 ))
 done

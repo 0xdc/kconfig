@@ -1,0 +1,11 @@
+config META_TYPEC
+	tristate "USB Type-C in userspace"
+
+	default m if META_DYSNOMIA
+
+	imply USB
+	select TYPEC
+	select TYPEC_UCSI
+	select UCSI_ACPI
+	select USB_SUPPORT
+	select ACPI

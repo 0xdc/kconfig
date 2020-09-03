@@ -5,6 +5,7 @@ config META_AMDGPU
     default m if META_KAVA
     
     select IOMMU_SUPPORT
+        imply ACPI
     select DRM
     
     select DRM_AMDGPU

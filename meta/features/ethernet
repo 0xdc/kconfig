@@ -10,6 +10,11 @@ config META_USB_ETHERNET
 
 	default m if META_ALL
 
+	select USB
+	select USB_SUPPORT
+	select USB_ARCH_HAS_HCD
+	imply NETDEVICES
+	select USB_NET_DRIVERS
 	select USB_USBNET
 	select USB_NET_AX8817X
 	select USB_NET_AX88179_178A

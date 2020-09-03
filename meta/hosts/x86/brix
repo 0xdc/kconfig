@@ -3,6 +3,14 @@ config META_BRIX
 
 	default m if META_ALL
 
+	imply NETDEVICES
+	imply WLAN
+	imply WLAN_VENDOR_REALTEK
+	imply RTL_CARDS
+	imply MAC80211
+	imply CFG80211
 	select RTL8723AE
 
+	select FB
+	select FRAMEBUFFER_CONSOLE
 	select FRAMEBUFFER_CONSOLE_DEFERRED_TAKEOVER

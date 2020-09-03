@@ -1,0 +1,11 @@
+config META_HID_IIO
+	tristate "HID/IIO Sensors support"
+
+	default m if META_DYSNOMIA
+
+	select IIO
+	select HID_SENSOR_HUB
+	select HID_SENSOR_ACCEL_3D
+
+	select 64BIT if META_DYSNOMIA
+	select INTEL_ISH_HID if META_DYSNOMIA

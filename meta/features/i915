@@ -1,7 +1,21 @@
 config META_I915
 	tristate "Intel i915 DRM graphics support"
 
-	default m if META_KAVA || META_OAK || META_SOLANA
+	default m if META_KAVA || META_OAK || META_SOLANA || META_DYSNOMIA || META_SAMUS
 
 	select DRM
 	select DRM_I915
+
+config META_KVMGT
+	tristate "i915 KVMGT/iGVT support"
+	depends on 64BIT
+	default m if META_DYSNOMIA || META_SAMUS
+
+	select DRM_I915_GVT
+	select DRM_I915_GVT_KVMGT
+
+	select KVM
+	select VFIO
+	select VFIO_MDEV
+	select VFIO_MDEV_DEVICE
+	select IOMMU_API

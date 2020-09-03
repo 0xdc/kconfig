@@ -7,3 +7,5 @@ config META_STEAM_CONTROLLER
 	select INPUT
 	select INPUT_MISC
 	select INPUT_UINPUT
+
+	select HID_STEAM

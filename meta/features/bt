@@ -6,6 +6,21 @@ config META_BT
 	select NET
 	select BT
 	select BT_HCIBTUSB if USB
+	select BT_HIDP
+	select UHID
+
+config META_BNEP
+	tristate "Bluetooth networking and 6LoWPAN"
+
+	select BT
+	select BT_BREDR
+	select BT_BNEP
+	select 6LOWPAN
+
+	select IEEE802154
+	select IEEE802154_NL802154_EXPERIMENTAL
+	select IEEE802154_6LOWPAN
+	select MAC802154
 
 config META_BTATH3K
 	tristate "ATH3K support"

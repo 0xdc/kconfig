@@ -9,3 +9,4 @@ config META_V4L2
 	select MEDIA_USB_SUPPORT
 	select VIDEO_V4L2
 	select USB_VIDEO_CLASS
+	select I2C

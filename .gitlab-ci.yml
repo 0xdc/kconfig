@@ -1,9 +1,10 @@
 variables:
-    KVER: "4.19"
+    KVER: "5.4"
     
 before_script:
 - "git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git || true"
-- "git fetch --no-tags stable"
+- "git remote add mfd https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git || true"
+- "git fetch --no-tags --multiple stable mfd"
 
 stages:
 - prep
@@ -32,6 +33,7 @@ build:
     script:
     - "git fetch --tags stable"
     - "git checkout -b $CI_JOB_ID stable/linux-$KVER.y"
+    - "git merge mfd/ib-mfd-doc-sparc-libdevres-5.5 -m 'Merge lpss fixes'"
     - make -j$(nproc) bzImage
     - make -j$(nproc) modules
     - make tar-pkg
