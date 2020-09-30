@@ -1,5 +1,7 @@
 config META_STORAGE
-	bool "Storage (SATA AHCI & USB)"
+	tristate "Storage (SATA AHCI & USB)"
+
+	default m if META_AZOLLA || META_KAVA || META_MAPLE || META_OAK
 
 	select HAS_DMA
 	select HAS_IOMEM
@@ -11,3 +13,6 @@ config META_STORAGE
 	select USB_SUPPORT
 	#select USB_EHCI_HCD
 	select USB_XHCI_HCD
+
+	select USB_STORAGE
+	select USB_UAS

@@ -6,7 +6,6 @@ config META_KAVA
 	select 64BIT
 
 	select META_PCIE
-	select META_STORAGE
 	select META_INTEL_HYPERTHREADING
 	select META_IOMMU
 

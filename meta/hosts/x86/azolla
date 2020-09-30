@@ -8,7 +8,6 @@ config META_AZOLLA
 	select IGB
 
 	select META_ETHERNET
-	select META_STORAGE
 	select META_XEN
 	select META_EFI
 	select META_BTRFS

@@ -7,7 +7,6 @@ config META_MAPLE
 	select META_BASIC_NETWORKING
 	select META_EFI
 	select META_XEN
-	select META_STORAGE
 	select META_GPT
 	select META_PCIE
 	select META_ETHERNET
