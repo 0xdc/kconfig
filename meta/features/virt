@@ -1,7 +1,7 @@
 config META_VIRT
 	tristate "Virtualisation"
 	depends on 64BIT
-	default m if META_DYSNOMIA
+	default m if META_DYSNOMIA || META_OAK
 
 	select NET
 	select INET
@@ -12,6 +12,7 @@ config META_VIRT
 	select VIRTUALIZATION
 	select KVM
 	select KVM_INTEL if CPU_SUP_INTEL
+	select VHOST_MENU
 	select VHOST_NET
 	select TUN
 
