@@ -28,6 +28,9 @@ if test -f /run/.containerenv; then
 		./config
 		./build
 		;;
+	shell)
+		exec bash
+		;;
 	esac
 else
 	case "$action" in
@@ -38,7 +41,7 @@ else
 		podman logs --tail 10 $container
 		echo "$(cut -c-16 <<<$container):/kconfig/"
 		;;
-	*config)
+	shell|merge|*config)
 		podman run --rm -it -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
 		;;
 	*)
