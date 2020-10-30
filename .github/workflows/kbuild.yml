@@ -1,0 +1,108 @@
+# Workflow to build a custom kernel
+
+name: kbuild
+
+env:
+  UPSTREAM: gregkh/linux
+  BRANCH: linux-5.4.y
+
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "32 2 1,15 * 5"
+
+jobs:
+  config:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout kconfig source
+      uses: actions/checkout@v2
+      with:
+        # Need full history to merge
+        fetch-depth: 0
+
+    - name: Checkout upstream source
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.UPSTREAM }}
+        ref: ${{ env.BRANCH }}
+        path: linux-stable
+        # Need full history to merge
+        fetch-depth: 0
+
+    - name: Merge the two unrelated branches
+      run: |
+        git fetch linux-stable
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git merge --no-stat --allow-unrelated-histories -X ours -m "Merge $BRANCH" FETCH_HEAD
+
+    - name: Generate full kernel config
+      run: ./config
+
+    - name: Upload generated config
+      uses: actions/upload-artifact@v2
+      with:
+        name: config
+        path: .config
+        if-no-files-found: error
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout kconfig source
+      uses: actions/checkout@v2
+      with:
+        # Need full history to merge
+        fetch-depth: 0
+
+    - name: Checkout upstream source
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.UPSTREAM }}
+        ref: ${{ env.BRANCH }}
+        path: linux-stable
+        # Need full history to merge
+        fetch-depth: 0
+
+    - name: Merge the two unrelated branches
+      run: |
+        git fetch linux-stable
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git merge --no-stat --allow-unrelated-histories -X ours -m "Merge $BRANCH" FETCH_HEAD
+
+    - name: Check kernel options
+      run: ./check
+
+  build:
+    # build requires the full config
+    needs: config
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout upstream source
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.UPSTREAM }}
+        ref: ${{ env.BRANCH }}
+
+    - name: Download full config
+      uses: actions/download-artifact@v2
+      with:
+        name: config
+
+    - name: Build the kernel
+      uses: docker://applehq/gentoo-stage4
+      with:
+        args: make tar-pkg
+
+    - name: Upload compiled kernel binaries
+      uses: actions/upload-artifact@v2
+      with:
+        name: kernel-install
+        if-no-files-found: error
+        # Ignore the non-compressed kernel
+        path: |
+          tar-install/
+          !tar-install/boot/vmlinux*
