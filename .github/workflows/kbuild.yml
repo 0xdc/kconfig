@@ -4,7 +4,7 @@ name: kbuild
 
 env:
   UPSTREAM: gregkh/linux
-  BRANCH: linux-5.4.y
+  BRANCH: linux-5.10.y
 
 on:
   push:
