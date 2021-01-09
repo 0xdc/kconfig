@@ -26,10 +26,3 @@ config META_KAVA
 
 	select INPUT_JOYSTICK
 	select JOYSTICK_XPAD
-
-	select HMM_MIRROR
-	select ZONE_DEVICE
-	select DRM_AMDGPU_USERPTR
-
-	select MEMORY_HOTPLUG
-	select MEMORY_HOTREMOVE
