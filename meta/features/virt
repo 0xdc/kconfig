@@ -1,7 +1,7 @@
 config META_VIRT
 	tristate "Virtualisation"
 	depends on 64BIT
-	default m if META_DYSNOMIA
+	default m if META_DYSNOMIA || META_OAK
 
 	select NET
 	select INET
@@ -12,6 +12,7 @@ config META_VIRT
 	select VIRTUALIZATION
 	select KVM
 	select KVM_INTEL if CPU_SUP_INTEL
+	select VHOST_MENU
 	select VHOST_NET
 	select TUN
 
@@ -68,7 +69,7 @@ config META_IOMMU
 config META_LIBVIRT
 	tristate "libvirt requirements"
 
-	default y if META_ALL
+	default m if META_ALL
 
 	select CONFIG_BRIDGE_EBT_MARK_T
 	select CONFIG_BRIDGE_NF_EBTABLES
@@ -81,3 +82,7 @@ config META_LIBVIRT
 	select CONFIG_NET_SCH_HTB
 	select CONFIG_NET_SCH_INGRESS
 	select CONFIG_NET_SCH_SFQ
+
+	select MD
+	select BLK_DEV_DM
+	select DM_MULTIPATH
