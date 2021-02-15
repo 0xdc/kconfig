@@ -23,7 +23,6 @@ config META_OAK
 	select META_SERIAL
 	select META_USB_REC
 	select META_SYSTEMD
-	select META_V4L2
 	select META_VIRTIO
 	select META_CONTAINER
 
