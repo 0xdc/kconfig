@@ -1,8 +1,13 @@
 config META_AZOLLA
-	bool "Azolla"
+	tristate "Azolla"
+
+	default m if META_ALL
 
 	select 64BIT
 	select MATOM # doesn't unset GENERIC_CPU
+
+	select DRM
+	select DRM_AST
 
 	select NET_VENDOR_INTEL
 	select IGB
