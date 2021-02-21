@@ -10,6 +10,7 @@ config META_AMDGPU
 
 	select DRM_AMDGPU
 	select DRM_AMDGPU_SI
+	select DRM_AMD_DC_SI
 	select DRM_AMD_ACP
 	select AMD_IOMMU
 	select AMD_IOMMU_V2
