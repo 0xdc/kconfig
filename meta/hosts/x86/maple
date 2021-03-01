@@ -16,3 +16,5 @@ config META_MAPLE
 	select E1000E
 	select XFS_FS
 	select XFS_POSIX_ACL
+
+	select TRANSPARENT_HUGEPAGE

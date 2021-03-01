@@ -1,5 +1,6 @@
 config META_V4L2
-	bool "Video4Linux multimedia support"
+	tristate "Video4Linux multimedia support"
+	default m if META_MAPLE || META_KAVA
 
 	select USB
 	select USB_SUPPORT
@@ -10,3 +11,4 @@ config META_V4L2
 	select VIDEO_V4L2
 	select USB_VIDEO_CLASS
 	select I2C
+	select I2C_CHARDEV

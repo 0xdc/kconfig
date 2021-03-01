@@ -1,3 +1,11 @@
+config META_IWLWIFI_BUILTIN
+	bool "wifi leds that been to be built-in"
+
+	default y if META_DYSNOMIA
+
+	select LEDS_CLASS
+	select NEW_LEDS
+
 config META_IWLWIFI
 	tristate "iwlwifi for ax200/ax1650i"
 
@@ -11,3 +19,5 @@ config META_IWLWIFI
 	imply WLAN_VENDOR_INTEL
 	imply CFG80211
 	imply MAC80211
+
+	select META_IWLWIFI_BUILTIN
