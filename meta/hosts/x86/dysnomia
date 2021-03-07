@@ -26,3 +26,5 @@ config META_DYSNOMIA
 
 	select PSI
 	select THUNDERBOLT
+
+	select INTEL_POWERCLAMP
