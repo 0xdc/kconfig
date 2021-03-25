@@ -44,6 +44,9 @@ else
 	shell|merge|*config)
 		podman run --rm -it -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
 		;;
+	__completeNoDesc)
+		compgen -W "build shell merge check allnoconfig defconfig"
+		;;
 	*)
 		podman run --rm -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
 		;;
