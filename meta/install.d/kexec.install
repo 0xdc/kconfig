@@ -1,4 +1,10 @@
 #!/bin/bash
 
+set -e
+
+test -f /boot/vmlinuz-$2
+test -f /boot/initramfs-$2.img || dracut -f /boot/initramfs-$2.img $2
+
 rm /etc/systemd/system/kexec.target.wants/*
-systemctl enable --now kexec-load@$2.service
+
+systemctl enable --now kexec-load@$(systemd-escape $2).service
