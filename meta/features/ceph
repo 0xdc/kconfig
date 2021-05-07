@@ -1,0 +1,7 @@
+config META_CEPH
+	tristate "Ceph support"
+
+	default m if META_AZOLLA
+
+	select BLK_DEV_RBD
+	select CEPH_FS
