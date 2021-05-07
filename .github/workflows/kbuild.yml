@@ -92,6 +92,11 @@ jobs:
       with:
         name: config
 
+    - name: Setup config
+      uses: docker://applehq/gentoo-stage4
+      with:
+        args: make tinyconfig 0xdc1.config 0xdc2.config
+
     - name: Build the kernel
       uses: docker://applehq/gentoo-stage4
       with:
