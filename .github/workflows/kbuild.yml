@@ -91,6 +91,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: config
+        path: kernel/configs/
 
     - name: Setup config
       uses: docker://applehq/gentoo-stage4
