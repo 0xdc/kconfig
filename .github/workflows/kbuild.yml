@@ -95,7 +95,7 @@ jobs:
     - name: Build the kernel
       uses: docker://applehq/gentoo-stage4
       with:
-        args: make tar-pkg
+        args: make -j2 tar-pkg
 
     - name: Upload compiled kernel binaries
       uses: actions/upload-artifact@v2
