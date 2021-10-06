@@ -11,6 +11,7 @@ on:
   pull_request:
   schedule:
   - cron: "32 2 1,15 * 5"
+  workflow_dispatch:
 
 jobs:
   config:
