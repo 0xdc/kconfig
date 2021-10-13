@@ -16,12 +16,28 @@ on:
 jobs:
   config:
     runs-on: ubuntu-latest
+    outputs:
+      UPSTREAM_COMMIT: ${{ env.UPSTREAM_COMMIT }}
+
     steps:
     - name: Checkout kconfig source
       uses: actions/checkout@v2
       with:
         # Need full history to merge
         fetch-depth: 0
+
+    - name: get upstream commit
+      run: |
+        UPSTREAM_COMMIT=$(git ls-remote $GITHUB_SERVER_URL/$UPSTREAM | awk '$2 == "refs/heads/'"$BRANCH"'"{print$1}')
+        echo UPSTREAM_COMMIT="${UPSTREAM_COMMIT}" | tee -a "$GITHUB_ENV"
+
+    - name: cache kernel
+      uses: actions/cache@v2
+      with:
+        path: linux-stable/.git
+        key: linux-${{ env.UPSTREAM }}-${{ env.UPSTREAM_COMMIT }}
+        restore-keys: |
+          linux-${{ env.UPSTREAM }}-
 
     - name: Checkout upstream source
       uses: actions/checkout@v2
@@ -49,6 +65,18 @@ jobs:
         path: .config
         if-no-files-found: error
 
+    - name: diffconfig
+      run: |
+        cp .config 0xdc.config
+        make defconfig
+        ./scripts/diffconfig -m .config 0xdc.config | tee 0xdc_diff.config
+
+    - name: Upload diffconfig
+      uses: actions/upload-artifact@v2
+      with:
+        name: diffconfig
+        path: 0xdc_diff.config
+
   check:
     runs-on: ubuntu-latest
     steps:
@@ -57,6 +85,13 @@ jobs:
       with:
         # Need full history to merge
         fetch-depth: 0
+
+    - name: cache kernel
+      uses: actions/cache@v2
+      with:
+        path: linux-stable/.git
+        key: linux-${{ env.UPSTREAM }}
+        restore-keys: linux-
 
     - name: Checkout upstream source
       uses: actions/checkout@v2
@@ -81,12 +116,22 @@ jobs:
     # build requires the full config
     needs: config
     runs-on: ubuntu-latest
+
     steps:
+    - name: restore cache
+      uses: actions/cache@v2
+      with:
+        path: .git
+        key: linux-${{ env.UPSTREAM }}-${{ needs.config.outputs.UPSTREAM_COMMIT }}
+        restore-keys: |
+          linux-${{ env.UPSTREAM }}-
+
     - name: Checkout upstream source
       uses: actions/checkout@v2
       with:
         repository: ${{ env.UPSTREAM }}
         ref: ${{ env.BRANCH }}
+        fetch-depth: 0
 
     - name: Download full config
       uses: actions/download-artifact@v2
@@ -97,6 +142,15 @@ jobs:
       uses: docker://applehq/gentoo-stage4
       with:
         args: make -j3 tar-pkg
+
+    - name: status and diff
+      run: |
+        git remote -v
+        git --no-pager status
+        git --no-pager diff
+        make kernelversion
+        make kernelrelease
+        git describe
 
     - name: Upload compiled kernel binaries
       uses: actions/upload-artifact@v2
