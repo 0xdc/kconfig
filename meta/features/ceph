@@ -3,5 +3,6 @@ config META_CEPH
 
 	default m if META_AZOLLA
 
+	select BLK_DEV
 	select BLK_DEV_RBD
 	select CEPH_FS

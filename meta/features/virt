@@ -32,6 +32,7 @@ config META_VIRTIO
 	select VIRTIO_NET
 	select VIRTIO_PCI
 	select VIRTIO_RING
+	select BLK_DEV
 	select VIRTIO_BLK
 	select VIRTIO_BLK_SCSI
 	select HW_RANDOM

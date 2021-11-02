@@ -6,5 +6,6 @@ config META_XEN
 	select PARAVIRT
 	select NETDEVICES
 	select XEN
+	select BLK_DEV
 	select XEN_BLKDEV_BACKEND
 	select XEN_NETDEV_BACKEND
