@@ -15,6 +15,7 @@ config META_SOLANA
 	# smbios
 	select DCDBAS
 	select X86_PLATFORM_DEVICES
+	select X86_PLATFORM_DRIVERS_DELL
 	select ACPI_WMI
 	select DELL_SMBIOS
 	select DELL_WMI
