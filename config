@@ -5,6 +5,7 @@ set -e
 make defconfig
 ./scripts/config -e meta_options
 ./scripts/config -e meta_all
+./scripts/config -d DUMMY
 ./scripts/config -d HAMRADIO
 ./scripts/config -d IPV6_SIT
 ./scripts/config -d LOGO
