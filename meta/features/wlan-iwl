@@ -1,5 +1,5 @@
 config META_IWLWIFI_BUILTIN
-	bool "wifi leds that been to be built-in"
+	bool "wifi leds that need to be built-in"
 
 	default y if META_DYSNOMIA
 
