@@ -33,7 +33,7 @@ config META_SOLANA
 	# Touchscreen
 	select MFD_INTEL_LPSS_PCI
 	select INTEL_LPSS_PCI
-	select I2C_HID
+	select I2C_HID_ACPI
 	select I2C_DESIGNWARE_PLATFORM
 
 	# MultiTouchPad
