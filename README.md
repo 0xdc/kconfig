@@ -12,7 +12,7 @@ $ cd kconfig
 $ git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 $ git fetch stable linux-5.15.y
 $ git checkout -b linux-5.15.y master
-$ git merge --no-stat --allow-unrelated-histories -X ours stable/linux-5.4.y -m "Merge linux-5.15.y"
+$ git merge --no-stat --allow-unrelated-histories -X ours stable/linux-5.15.y -m "Merge linux-5.15.y"
 $ ./config
 $ ./build
 # rsync -r meta/install.d/ /etc/kernel/install.d
