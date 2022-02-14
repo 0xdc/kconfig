@@ -5,6 +5,7 @@ set -e
 make defconfig
 ./scripts/config -e meta_options
 ./scripts/config -e meta_all
+./scripts/config -d DUMMY
 ./scripts/config -d HAMRADIO
 ./scripts/config -d IPV6_SIT
 ./scripts/config -d LOGO
@@ -15,9 +16,9 @@ make defconfig
 ./scripts/config -m R8169
 ./scripts/config -m DRM_I915
 
-./scripts/config -d PREEMPT_NONE
+./scripts/config -e PREEMPT_NONE
 ./scripts/config -d PREEMPT_VOLUNTARY
-./scripts/config -e PREEMPT
+./scripts/config -d PREEMPT
 
 ./scripts/config -d PM_TRACE_RTC
 ./scripts/config -d CPU_FREQ_DEFAULT_GOV_USERSPACE

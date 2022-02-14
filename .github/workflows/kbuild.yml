@@ -11,6 +11,7 @@ on:
   pull_request:
   schedule:
   - cron: "32 2 1,15 * 5"
+  workflow_dispatch:
 
 jobs:
   config:
@@ -86,6 +87,8 @@ jobs:
       with:
         repository: ${{ env.UPSTREAM }}
         ref: ${{ env.BRANCH }}
+        # Need full history for tags
+        fetch-depth: 0
 
     - name: Download full config
       uses: actions/download-artifact@v2

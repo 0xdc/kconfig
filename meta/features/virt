@@ -28,6 +28,7 @@ config META_VIRTIO
 	select VIRTIO_MENU
 	select VIRTIO_BALLOON
 	select VIRTIO_CONSOLE
+	select VIRTIO_INPUT
 	select VIRTIO_NET
 	select VIRTIO_PCI
 	select VIRTIO_RING

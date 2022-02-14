@@ -8,9 +8,11 @@ if test -f /run/.containerenv; then
 	rsync -r /usr/src/kconfig /
 	pushd /kconfig
 
-	if test "$action" != "merge"; then
-		gitargs="-X ours"
-	fi
+	case "$action" in
+	merge|shell)	;;
+	*)		gitargs="-X ours"
+			;;
+	esac
 	git merge --no-stat --allow-unrelated-histories $gitargs stable/linux-$kver.y -m "Merge linux-$kver.y"
 
 	case "$action" in
@@ -36,15 +38,14 @@ else
 	case "$action" in
 	build)
 		container=$(podman run --detach -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@")
-		podman wait $container &
-		wait
+		podman wait $container
 		podman logs --tail 10 $container
 		echo "$(cut -c-16 <<<$container):/kconfig/"
 		;;
 	shell|merge|*config)
 		podman run --rm -it -v ${PWD}:/usr/src/kconfig $image /usr/src/kconfig/podman "$@"
 		;;
-	__completeNoDesc)
+	__complete*)
 		compgen -W "build shell merge check allnoconfig defconfig"
 		;;
 	*)
