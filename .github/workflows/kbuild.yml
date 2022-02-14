@@ -100,10 +100,21 @@ jobs:
       with:
         args: make -j3 tar-pkg
 
+    - name: Configure environment
+      run: echo KREL=$(make kernelrelease) >> ${GITHUB_ENV}
+
+    - name: Create an initramfs
+      uses: docker://applehq/gentoo-stage4
+      with:
+        args: dracut --xz --kmoddir tar-install/lib/modules/${{ env.KREL }}/ -f tar-install/boot/initrd-${{ env.KREL }} ${{ env.KREL }}
+
+    - name: Change initrd permissions
+      run: sudo chmod a+r tar-install/boot/initrd-${{ env.KREL }}
+
     - name: Upload compiled kernel binaries
       uses: actions/upload-artifact@v2
       with:
-        name: kernel-install
+        name: kernel-${{ env.KREL }}
         if-no-files-found: error
         # Ignore the non-compressed kernel
         path: |
