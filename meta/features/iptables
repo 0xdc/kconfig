@@ -44,4 +44,5 @@ config META_NFTABLES
 	select NFT_REJECT
 
 	select NF_CONNTRACK
+	select NF_CONNTRACK_MARK
 	select NF_NAT
