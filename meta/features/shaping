@@ -14,5 +14,8 @@ config META_TRAFFIC_SHAPING
 	select IFB
 
 	select NET_CLS_ACT
-	select NET_ACT_MIRRED
 	select NET_CLS_BASIC
+	select NET_EMATCH
+	select NET_EMATCH_META
+	select NET_ACT_MIRRED
+	select NET_ACT_SKBEDIT
