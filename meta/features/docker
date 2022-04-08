@@ -45,7 +45,6 @@ config META_DOCKER_I_ARDLY_KNEW_ER
   select NET_L3_MASTER_DEV
   select IPVLAN
 
-  select DUMMY
   select CGROUP_NET_PRIO
 
   select MD
