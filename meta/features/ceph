@@ -6,3 +6,4 @@ config META_CEPH
 	select BLK_DEV
 	select BLK_DEV_RBD
 	select CEPH_FS
+	select CEPH_LIB_USE_DNS_RESOLVER
