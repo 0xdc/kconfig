@@ -1,0 +1,5 @@
+config META_DMESG
+	bool "Restrict dmesg to privileged users"
+	default y if META_OPTIONS
+
+	select SECURITY_DMESG_RESTRICT
