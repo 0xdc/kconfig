@@ -16,6 +16,11 @@ on:
 jobs:
   config:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+        - "5.10"
+        - "5.15"
     steps:
     - name: Checkout kconfig source
       uses: actions/checkout@v2
@@ -27,7 +32,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: ${{ env.UPSTREAM }}
-        ref: ${{ env.BRANCH }}
+        ref: linux-${{ matrix.branch }}.y
         path: linux-stable
         # Need full history to merge
         fetch-depth: 0
@@ -45,12 +50,17 @@ jobs:
     - name: Upload generated config
       uses: actions/upload-artifact@v2
       with:
-        name: config
+        name: config-${{ matrix.branch }}
         path: .config
         if-no-files-found: error
 
   check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+        - "5.10"
+        - "5.15"
     steps:
     - name: Checkout kconfig source
       uses: actions/checkout@v2
@@ -62,7 +72,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: ${{ env.UPSTREAM }}
-        ref: ${{ env.BRANCH }}
+        ref: linux-${{ matrix.branch }}.y
         path: linux-stable
         # Need full history to merge
         fetch-depth: 0
@@ -81,19 +91,24 @@ jobs:
     # build requires the full config
     needs: config
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+        - "5.10"
+        - "5.15"
     steps:
     - name: Checkout upstream source
       uses: actions/checkout@v2
       with:
         repository: ${{ env.UPSTREAM }}
-        ref: ${{ env.BRANCH }}
+        ref: linux-${{ matrix.branch }}.y
         # Need full history for tags
         fetch-depth: 0
 
     - name: Download full config
       uses: actions/download-artifact@v2
       with:
-        name: config
+        name: config-${{ matrix.branch }}
 
     - name: Build the kernel
       uses: docker://applehq/gentoo-stage4
