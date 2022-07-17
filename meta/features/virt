@@ -74,12 +74,23 @@ config META_LIBVIRT
 
 	default m if META_ALL
 
+	select BRIDGE
+	select NETFILTER
+	select NETFILTER_XTABLES
 	select BRIDGE_EBT_MARK_T
 	select BRIDGE_NF_EBTABLES
+	select NF_CONNTRACK
+	select NETFILTER_ADVANCED
+	select IP_NF_IPTABLES
+	select IP_NF_MANGLE
+	select IP6_NF_IPTABLES
+	select IP6_NF_MANGLE
 	select NETFILTER_XT_CONNMARK
 	select NETFILTER_XT_TARGET_CHECKSUM
 	select BRIDGE_EBT_T_NAT
+	select NET_SCHED
 	select NET_ACT_POLICE
+	select NET_CLS_ACT
 	select NET_CLS_FW
 	select NET_CLS_U32
 	select NET_SCH_HTB
