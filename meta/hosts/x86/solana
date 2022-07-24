@@ -15,6 +15,7 @@ config META_SOLANA
 	# smbios
 	select DCDBAS
 	select X86_PLATFORM_DEVICES
+	select X86_PLATFORM_DRIVERS_DELL
 	select ACPI_WMI
 	select DELL_SMBIOS
 	select DELL_WMI
@@ -33,6 +34,7 @@ config META_SOLANA
 	select MFD_INTEL_LPSS_PCI
 	select INTEL_LPSS_PCI
 	select I2C_HID
+	select I2C_HID_ACPI
 	select I2C_DESIGNWARE_PLATFORM
 
 	# MultiTouchPad

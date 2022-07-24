@@ -5,6 +5,7 @@ config META_DOCKER_I_ARDLY_KNEW_ER
   select CGROUP_DEVICE
   select MEMCG
   select CGROUP_PIDS
+  select SWAP
   select MEMCG_SWAP
   select MEMCG_SWAP_ENABLED
   select BLK_CGROUP

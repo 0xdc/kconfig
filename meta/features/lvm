@@ -6,3 +6,4 @@ config META_LVM
 	select MD
 	select BLK_DEV_DM
 	select DM_SNAPSHOT
+	select DM_CACHE

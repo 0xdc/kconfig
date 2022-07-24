@@ -4,6 +4,7 @@ config META_HID_IIO
 	default m if META_DYSNOMIA
 
 	select IIO
+	select HID
 	select HID_SENSOR_HUB
 	select HID_SENSOR_ACCEL_3D
 
