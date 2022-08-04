@@ -22,7 +22,9 @@ config META_KAVA
 	select I2C_SMBUS
 	select I2C_I801
 
+	select BLK_DEV
 	select BLK_DEV_NBD
 
 	select INPUT_JOYSTICK
 	select JOYSTICK_XPAD
+	select INPUT_JOYDEV
