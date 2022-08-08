@@ -7,3 +7,6 @@ config META_IPMI
 	select IPMI_HANDLER
 	select IPMI_WATCHDOG
 	select IPMI_SI
+
+	select IPMI_DEVICE_INTERFACE
+	select IPMI_POWEROFF
