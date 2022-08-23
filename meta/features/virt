@@ -44,6 +44,16 @@ config META_VIRTIO
 	select FB
 	select FB_VESA
 
+config META_MEMORY_HOTPLUG
+	bool "Memory Hotplug support"
+	default y if META_AZOLLA || META_PULSAR
+
+	depends on 64BIT
+	select MEMORY_HOTPLUG
+	select ACPI_HOTPLUG_MEMORY
+	select MEMORY_HOTPLUG_DEFAULT_ONLINE
+	select MEMORY_HOTREMOVE
+
 config META_CONTAINER
 	bool "Container support"
 
