@@ -1,7 +1,12 @@
 config META_IPMI
-	bool "IPMI"
+	tristate "IPMI"
+
+	default m if META_AZOLLA
 
 	select HAS_IOMEM
 	select IPMI_HANDLER
 	select IPMI_WATCHDOG
 	select IPMI_SI
+
+	select IPMI_DEVICE_INTERFACE
+	select IPMI_POWEROFF

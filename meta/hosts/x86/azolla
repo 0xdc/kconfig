@@ -21,5 +21,4 @@ config META_AZOLLA
 	select META_SYSTEMD
 	select META_PCIE
 	select META_GPT
-	select META_IPMI
 	select META_INTEL
