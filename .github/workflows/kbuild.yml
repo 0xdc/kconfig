@@ -4,7 +4,6 @@ name: kbuild
 
 env:
   UPSTREAM: gregkh/linux
-  BRANCH: linux-5.15.y
 
 on:
   push:
@@ -23,13 +22,13 @@ jobs:
         - "5.15"
     steps:
     - name: Checkout kconfig source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         # Need full history to merge
         fetch-depth: 0
 
     - name: Checkout upstream source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: ${{ env.UPSTREAM }}
         ref: linux-${{ matrix.branch }}.y
@@ -48,7 +47,7 @@ jobs:
       run: ./config
 
     - name: Upload generated config
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: config-${{ matrix.branch }}
         path: .config
@@ -63,13 +62,13 @@ jobs:
         - "5.15"
     steps:
     - name: Checkout kconfig source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         # Need full history to merge
         fetch-depth: 0
 
     - name: Checkout upstream source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: ${{ env.UPSTREAM }}
         ref: linux-${{ matrix.branch }}.y
@@ -98,7 +97,7 @@ jobs:
         - "5.15"
     steps:
     - name: Checkout upstream source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: ${{ env.UPSTREAM }}
         ref: linux-${{ matrix.branch }}.y
@@ -106,7 +105,7 @@ jobs:
         fetch-depth: 0
 
     - name: Download full config
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: config-${{ matrix.branch }}
 
@@ -127,7 +126,7 @@ jobs:
       run: sudo chmod a+r tar-install/boot/initrd-${{ env.KREL }}
 
     - name: Upload compiled kernel binaries
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: kernel-${{ env.KREL }}
         if-no-files-found: error
