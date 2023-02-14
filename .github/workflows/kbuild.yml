@@ -20,6 +20,7 @@ jobs:
         branch:
         - "5.10"
         - "5.15"
+        - "6.1"
     steps:
     - name: Checkout kconfig source
       uses: actions/checkout@v3
@@ -60,6 +61,7 @@ jobs:
         branch:
         - "5.10"
         - "5.15"
+        - "6.1"
     steps:
     - name: Checkout kconfig source
       uses: actions/checkout@v3
@@ -95,6 +97,7 @@ jobs:
         branch:
         - "5.10"
         - "5.15"
+        - "6.1"
     steps:
     - name: Checkout upstream source
       uses: actions/checkout@v3
