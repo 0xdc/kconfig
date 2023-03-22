@@ -28,3 +28,5 @@ config META_KAVA
 	select INPUT_JOYSTICK
 	select JOYSTICK_XPAD
 	select INPUT_JOYDEV
+
+	select UDF_FS
