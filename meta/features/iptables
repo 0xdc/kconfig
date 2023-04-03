@@ -37,6 +37,7 @@ config META_NFTABLES
 
 	select NFT_CT
 	select NFT_COUNTER
+	select NFT_DUP_IPV6
 	select NFT_LIMIT
 	select NFT_LOG
 	select NFT_MASQ
