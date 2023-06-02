@@ -25,6 +25,7 @@ if X86
 
 source "meta/hosts/x86/azolla"
 source "meta/hosts/x86/brix"
+source "meta/hosts/x86/duet"
 source "meta/hosts/x86/dysnomia"
 source "meta/hosts/x86/kava"
 source "meta/hosts/x86/maple"
