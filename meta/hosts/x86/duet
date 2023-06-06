@@ -3,6 +3,9 @@ config META_DUET
 
 	default m if META_ALL
 
+	imply PCI_MSI
+	select IOMMU_SUPPORT
+	select INTEL_IOMMU
 	imply NETDEVICES
 	select WWAN
 	select IOSM
@@ -27,3 +30,8 @@ config META_DUET
 	select FB
 	select FRAMEBUFFER_CONSOLE
 	select FRAMEBUFFER_CONSOLE_ROTATION
+
+	select I2C
+	select X86_PLATFORM_DEVICES
+	select BACKLIGHT_CLASS_DEVICE
+	select THINKPAD_ACPI
