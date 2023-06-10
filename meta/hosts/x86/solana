@@ -38,6 +38,8 @@ config META_SOLANA
 	select I2C_DESIGNWARE_PLATFORM
 
 	# MultiTouchPad
+	imply HID
+	select HID_SUPPORT
 	select HID_MULTITOUCH
 
 	# USB-C dongle w/ gig-e

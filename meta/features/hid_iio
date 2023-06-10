@@ -5,6 +5,7 @@ config META_HID_IIO
 
 	select IIO
 	select HID
+	select HID_SUPPORT
 	select HID_SENSOR_HUB
 	select HID_SENSOR_ACCEL_3D
 
