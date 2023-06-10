@@ -19,7 +19,6 @@ jobs:
       matrix:
         branch:
         - "linux-5.10.y"
-        - "linux-5.15.y"
         - "linux-6.1.y"
         - linux-rolling-lts
         - linux-rolling-stable
@@ -62,7 +61,6 @@ jobs:
       matrix:
         branch:
         - "linux-5.10.y"
-        - "linux-5.15.y"
         - "linux-6.1.y"
         - linux-rolling-lts
         - linux-rolling-stable
@@ -100,7 +98,6 @@ jobs:
       matrix:
         branch:
         - "linux-5.10.y"
-        - "linux-5.15.y"
         - "linux-6.1.y"
         - linux-rolling-lts
         - linux-rolling-stable
