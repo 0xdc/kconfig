@@ -6,6 +6,9 @@ config META_BT
 	select NET
 	select BT
 	select BT_HCIBTUSB if USB
+
+	select HID
+	select HID_SUPPORT
 	select BT_HIDP
 	select UHID
 

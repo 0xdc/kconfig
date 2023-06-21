@@ -7,5 +7,7 @@ config META_WACOM
 	select USB_ARCH_HAS_HCD
 	select USB
 	select USB_HID
+	imply HID
+	select HID_SUPPORT
 	select HID_WACOM
 	select PINCTRL_ICELAKE if META_DYSNOMIA

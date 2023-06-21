@@ -1,0 +1,38 @@
+config META_DUET
+	tristate "Lenovo IdeaPad Duet 3i"
+
+	default m if META_ALL
+
+	imply PCI_MSI
+	select IOMMU_SUPPORT
+	select INTEL_IOMMU
+	imply NETDEVICES
+	select WWAN
+	select IOSM
+
+	imply BT
+	imply BT_BREDR
+	select BT_HS
+
+	select MISC_FILESYSTEMS
+	select PSTORE
+	select EFI
+	select EFI_VARS_PSTORE
+
+	select ACPI
+	select PINCTRL
+	select PINCTRL_GEMINILAKE
+
+	select MMC
+	select MMC_SDHCI
+	select MMC_SDHCI_PCI
+
+	select FB
+	select FRAMEBUFFER_CONSOLE
+	select FRAMEBUFFER_CONSOLE_ROTATION
+
+	select DRM
+	select I2C
+	select X86_PLATFORM_DEVICES
+	select BACKLIGHT_CLASS_DEVICE
+	select THINKPAD_ACPI
