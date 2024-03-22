@@ -7,6 +7,7 @@ config META_TRAFFIC_SHAPING
 	select NET_SCHED
 	select NET_SCH_FQ_CODEL
 	select NET_SCH_CAKE
+	select NET_SCH_TEQL
 
 	select NET_SCH_INGRESS
 	select NETDEVICES

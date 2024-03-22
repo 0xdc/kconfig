@@ -110,3 +110,6 @@ config META_LIBVIRT
 	select MD
 	select BLK_DEV_DM
 	select DM_MULTIPATH
+
+	select DRM
+	select DRM_QXL

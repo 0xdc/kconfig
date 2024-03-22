@@ -26,6 +26,7 @@ config META_DYSNOMIA
 	select SQUASHFS
 	select SQUASHFS_LZO
 	select SQUASHFS_XZ
+	select SQUASHFS_XATTR
 
 	select PSI
 	select THUNDERBOLT

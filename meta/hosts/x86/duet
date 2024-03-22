@@ -36,3 +36,9 @@ config META_DUET
 	select X86_PLATFORM_DEVICES
 	select BACKLIGHT_CLASS_DEVICE
 	select THINKPAD_ACPI
+
+	select GNSS
+	select GNSS_USB if USB
+
+	select INT340X_THERMAL if 64BIT
+	select INTEL_TCC_COOLING
