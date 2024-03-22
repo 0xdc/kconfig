@@ -22,3 +22,5 @@ config META_AZOLLA
 	select META_PCIE
 	select META_GPT
 	select META_INTEL
+
+	select EDAC
