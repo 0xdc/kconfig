@@ -24,3 +24,4 @@ config META_AZOLLA
 	select META_INTEL
 
 	select EDAC
+	select RAS
