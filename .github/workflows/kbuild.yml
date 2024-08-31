@@ -24,13 +24,13 @@ jobs:
         - linux-rolling-stable
     steps:
     - name: Checkout kconfig source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         # Need full history to merge
         fetch-depth: 0
 
     - name: Checkout upstream source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ env.UPSTREAM }}
         ref: ${{ matrix.branch }}
@@ -49,7 +49,7 @@ jobs:
       run: ./config
 
     - name: Upload generated config
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config-${{ matrix.branch }}
         path: .config
@@ -66,13 +66,13 @@ jobs:
         - linux-rolling-stable
     steps:
     - name: Checkout kconfig source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         # Need full history to merge
         fetch-depth: 0
 
     - name: Checkout upstream source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ env.UPSTREAM }}
         ref: ${{ matrix.branch }}
@@ -103,7 +103,7 @@ jobs:
         - linux-rolling-stable
     steps:
     - name: Checkout upstream source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ env.UPSTREAM }}
         ref: ${{ matrix.branch }}
@@ -111,7 +111,7 @@ jobs:
         fetch-depth: 0
 
     - name: Download full config
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: config-${{ matrix.branch }}
 
@@ -132,7 +132,7 @@ jobs:
       run: sudo chmod a+r tar-install/boot/initrd-${{ env.KREL }}
 
     - name: Upload compiled kernel binaries
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: kernel-${{ env.KREL }}
         if-no-files-found: error
