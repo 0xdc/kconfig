@@ -36,6 +36,7 @@ config META_SOLANA
 	select I2C_HID
 	select I2C_HID_ACPI
 	select I2C_DESIGNWARE_PLATFORM
+	imply I2C_DESIGNWARE_CORE
 
 	# MultiTouchPad
 	imply HID
