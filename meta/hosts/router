@@ -1,2 +1,4 @@
 config META_ROUTER
 	tristate "Router configuration"
+
+	select WIREGUARD
