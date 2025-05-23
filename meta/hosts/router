@@ -1,2 +1,7 @@
 config META_ROUTER
 	tristate "Router configuration"
+	default m if META_ALL
+
+	select WIREGUARD
+	select DYNAMIC_DEBUG
+	select PRINTK
