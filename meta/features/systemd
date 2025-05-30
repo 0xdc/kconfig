@@ -18,6 +18,7 @@ config META_SYSTEMD
 	select SECCOMP
 	select SECCOMP_FILTER
 	select CRYPTO_USER_API_HASH
+	select CRYPTO
 
 	select BPF_SYSCALL
 	select CGROUP_BPF
