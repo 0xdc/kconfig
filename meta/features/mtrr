@@ -1,0 +1,7 @@
+config META_MTRR
+	bool "MTRR access"
+
+	default y if META_ALL || META_PULSAR
+
+	select MTRR
+	select MTRR_SANITISE
