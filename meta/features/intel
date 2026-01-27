@@ -8,3 +8,6 @@ config META_INTEL
 	select CPU_FREQ_GOV_POWERSAVE
 	select CPU_FREQ_GOV_ONDEMAND
 	select CPU_FREQ_STAT
+
+	select CPU_IDLE
+	select INTEL_IDLE
