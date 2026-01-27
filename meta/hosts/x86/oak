@@ -13,7 +13,6 @@ config META_OAK
 	select META_GPT
 	select META_IMA
 	select META_INTEL
-	select META_INTEL_HYPERTHREADING
 	select META_IOMMU
 	select META_IPTABLES
 	select META_LUKS
