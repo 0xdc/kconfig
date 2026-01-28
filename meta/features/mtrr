@@ -4,4 +4,4 @@ config META_MTRR
 	default y if META_ALL || META_PULSAR
 
 	select MTRR
-	select MTRR_SANITISE
+	select MTRR_SANITIZER
