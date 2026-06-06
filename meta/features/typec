@@ -9,3 +9,5 @@ config META_TYPEC
 	select UCSI_ACPI
 	select USB_SUPPORT
 	select ACPI
+
+	imply TYPEC_DP_ALTMODE
